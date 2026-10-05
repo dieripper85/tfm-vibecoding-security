@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE330_NV_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_02622b2ef7c4b4b7006ac29e835e3c87d2ae579ba92498f0a4",
+  "executed_at_utc": "2026-10-04T18:44:36.256807+00:00",
+  "code_sha256": "3227e5ec1a2cca03efd62bf14a0d36b4bd5fc6017311011f48086edce2f62a36",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "5a911a81b2bc3d068eccc51499fd0c8d58f00922609566adab11065b97d0d3f5",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Entropía insuficiente en token persistente",
+        "location": "BenchmarkTest00964_post, generación de value mediante random.SystemRandom().getrandbits(32)",
+        "explanation": "Aunque SystemRandom utiliza una fuente criptográficamente segura, el token remember-me solo dispone de 32 bits de entropía. El espacio de aproximadamente 4.300 millones de valores puede resultar susceptible a búsqueda exhaustiva, especialmente si el endpoint no aplica limitación de intentos. Un atacante que adivine el valor almacenado podría superar la comprobación del cookie.",
+        "cwe": "CWE-331",
+        "severity": "MEDIUM",
+        "recommendation": "Generar tokens con al menos 128 bits de entropía, preferiblemente 256 bits, por ejemplo mediante secrets.token_urlsafe(32). Añadir expiración y rotación de tokens, invalidarlos tras su uso cuando corresponda y aplicar limitación de intentos para dificultar ataques de fuerza bruta."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Entropía insuficiente en token persistente\",\n      \"location\": \"BenchmarkTest00964_post, generación de value mediante random.SystemRandom().getrandbits(32)\",\n      \"explanation\": \"Aunque SystemRandom utiliza una fuente criptográficamente segura, el token remember-me solo dispone de 32 bits de entropía. El espacio de aproximadamente 4.300 millones de valores puede resultar susceptible a búsqueda exhaustiva, especialmente si el endpoint no aplica limitación de intentos. Un atacante que adivine el valor almacenado podría superar la comprobación del cookie.\",\n      \"cwe\": \"CWE-331\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"Generar tokens con al menos 128 bits de entropía, preferiblemente 256 bits, por ejemplo mediante secrets.token_urlsafe(32). Añadir expiración y rotación de tokens, invalidarlos tras su uso cuando corresponda y aplicar limitación de intentos para dificultar ataques de fuerza bruta.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

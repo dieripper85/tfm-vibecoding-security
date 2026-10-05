@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE89_NV_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_00ae6026818a546c006ac29ee8060c87d28ea99d159a81a28d",
+  "executed_at_utc": "2026-10-04T18:46:11.246499+00:00",
+  "code_sha256": "c64b6f718f3f71b54a57ac51dc365464852920ee790dfd7f7e476cc4971e0922",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "de485907aee0ca89267c3186b4f1560ba2279a44f3cbb2bd5f37fb87f568bc71",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Exposición de información sensible mediante parámetros de URL",
+        "location": "BenchmarkTest01203_get y lectura de request.args.get(\"BenchmarkTest01203\") en BenchmarkTest01203_post",
+        "explanation": "El parámetro se utiliza como contraseña, pero se obtiene de la cadena de consulta. Además, el endpoint admite GET y delega en la misma lógica. Las contraseñas incluidas en una URL pueden quedar expuestas en historiales del navegador, registros de servidores y proxies, herramientas de monitorización y otros componentes intermedios.",
+        "cwe": "CWE-598",
+        "severity": "MEDIUM",
+        "recommendation": "Aceptar la contraseña únicamente mediante POST y obtenerla desde request.form o desde un cuerpo JSON. Eliminar el manejador GET para esta operación y evitar registrar cuerpos o campos que contengan credenciales."
+      },
+      {
+        "type": "Neutralización insuficiente de contenido al generar una respuesta web",
+        "location": "Construcción de RESPONSE con helpers.db_sqlite.results(cur, sql) y retorno directo mediante return RESPONSE",
+        "explanation": "Los resultados obtenidos de la base de datos se incorporan directamente a una respuesta HTML sin codificación de salida visible. Flask no aplica escape HTML automáticamente al devolver una cadena. Si un nombre de usuario almacenado contiene contenido HTML o JavaScript controlable por un atacante y helpers.db_sqlite.results no lo neutraliza, podría producirse XSS almacenado.",
+        "cwe": "CWE-79",
+        "severity": "MEDIUM",
+        "recommendation": "Codificar los valores procedentes de la base de datos para el contexto HTML antes de devolverlos. Preferiblemente, usar render_template con autoescape habilitado o aplicar escape_for_html a cada valor no confiable. No marcar el contenido como seguro salvo que haya sido validado y saneado específicamente."
+      }
+    ]
+  },
+  "raw_response": "{\"vulnerabilities\":[{\"type\":\"Exposición de información sensible mediante parámetros de URL\",\"location\":\"BenchmarkTest01203_get y lectura de request.args.get(\\\"BenchmarkTest01203\\\") en BenchmarkTest01203_post\",\"explanation\":\"El parámetro se utiliza como contraseña, pero se obtiene de la cadena de consulta. Además, el endpoint admite GET y delega en la misma lógica. Las contraseñas incluidas en una URL pueden quedar expuestas en historiales del navegador, registros de servidores y proxies, herramientas de monitorización y otros componentes intermedios.\",\"cwe\":\"CWE-598\",\"severity\":\"MEDIUM\",\"recommendation\":\"Aceptar la contraseña únicamente mediante POST y obtenerla desde request.form o desde un cuerpo JSON. Eliminar el manejador GET para esta operación y evitar registrar cuerpos o campos que contengan credenciales.\"},{\"type\":\"Neutralización insuficiente de contenido al generar una respuesta web\",\"location\":\"Construcción de RESPONSE con helpers.db_sqlite.results(cur, sql) y retorno directo mediante return RESPONSE\",\"explanation\":\"Los resultados obtenidos de la base de datos se incorporan directamente a una respuesta HTML sin codificación de salida visible. Flask no aplica escape HTML automáticamente al devolver una cadena. Si un nombre de usuario almacenado contiene contenido HTML o JavaScript controlable por un atacante y helpers.db_sqlite.results no lo neutraliza, podría producirse XSS almacenado.\",\"cwe\":\"CWE-79\",\"severity\":\"MEDIUM\",\"recommendation\":\"Codificar los valores procedentes de la base de datos para el contexto HTML antes de devolverlos. Preferiblemente, usar render_template con autoescape habilitado o aplicar escape_for_html a cada valor no confiable. No marcar el contenido como seguro salvo que haya sido validado y saneado específicamente.\"}]}",
+  "parse_error": null
+}

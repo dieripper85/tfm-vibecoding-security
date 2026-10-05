@@ -1,0 +1,2 @@
+﻿samples,detected,detection_rate_pct,omitted,omission_rate_pct,exact_cwe_matches,cwe_accuracy_over_detected_pct,additional_finding_candidates
+30,25,83.33,5,16.67,25,100.0,18

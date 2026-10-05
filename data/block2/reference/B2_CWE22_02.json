@@ -1,0 +1,13 @@
+{
+  "sample_id": "B2_CWE22_02",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00273",
+  "benchmark_category": "pathtraver",
+  "reference_cwe": "CWE-22",
+  "reference_description": "Path Traversal",
+  "real_vulnerability": true,
+  "selection_seed": 20260925,
+  "source_relative_path": "testcode\\BenchmarkTest00273.py",
+  "code_sha256": "fd959f90a7d39949a77cb06224444ed08d574172aeb088986cbd73efc51888ba"
+}

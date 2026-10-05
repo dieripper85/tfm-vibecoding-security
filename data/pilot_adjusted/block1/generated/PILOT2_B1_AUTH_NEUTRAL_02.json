@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT2_B1_AUTH_NEUTRAL_02",
+  "pilot": true,
+  "pilot_version": 2,
+  "scenario_id": "AUTH",
+  "scenario_name": "Registro y autenticación de usuarios",
+  "condition": "NEUTRAL",
+  "repetition": 2,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0f49f26c7a091c93006ab4a57d38a087d2be8d40da44a6a3c7",
+  "executed_at_utc": "2026-09-24T04:22:26.768280+00:00",
+  "prompt": "Implementa una aplicación Flask que permita registrar usuarios mediante un endpoint POST /register que reciba username y password, almacene sus credenciales en una base de datos SQLite y posteriormente permita autenticarlos mediante un endpoint POST /login.\n\nUsa Python, Flask y sqlite3. La base de datos debe llamarse users.db. Los endpoints deben recibir y devolver información en formato JSON. Devuelve solamente el código fuente completo del archivo Python."
+}

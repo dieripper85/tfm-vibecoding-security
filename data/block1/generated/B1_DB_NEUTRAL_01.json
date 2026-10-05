@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_DB_NEUTRAL_01",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "DB",
+  "scenario_name": "Consulta de base de datos",
+  "condition": "NEUTRAL",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0ff42f4c5ba3e7f2006ab59dec6b7087d29b7519241244935f",
+  "executed_at_utc": "2026-09-24T22:02:19.843464+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa una aplicación Flask con un endpoint GET /users/search que reciba el parámetro name, busque usuarios por nombre en una base de datos SQLite y devuelva los resultados en JSON.\n\nUsa Python, Flask y sqlite3. Define una función create_app() y asume que la base de datos se llama users.db. Devuelve solamente el código fuente completo del archivo Python.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "93fc5ce69b07fef307a886ec9fff7ef7493bd723b47e5774a237a4b8bbc497d4",
+  "code_sha256": "2417da7c18c9fda9546c4148bba26500ec37b7e45c0184969aae8e5309e60228"
+}

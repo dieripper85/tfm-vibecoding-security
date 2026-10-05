@@ -1,0 +1,4 @@
+﻿condition,samples,samples_with_findings,rate_samples_with_findings_pct,raw_findings,normalized_cwe_findings,avg_raw_findings_per_sample,avg_normalized_findings_per_sample
+NEUTRAL,30,15,50.0,32,17,1.07,0.57
+SECURE,30,19,63.33,19,9,0.63,0.3
+UNDERSPEC,30,13,43.33,29,19,0.97,0.63

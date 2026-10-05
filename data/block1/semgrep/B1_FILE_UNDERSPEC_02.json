@@ -1,0 +1,83 @@
+{
+  "version": "1.178.0",
+  "results": [],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block1\\generated\\B1_FILE_UNDERSPEC_02.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.12497544288635254,
+    "profiling_times": {
+      "config_time": 18.13103151321411,
+      "core_time": 0.41083240509033203,
+      "ignores_time": 0.0007102489471435547,
+      "total_time": 18.5631206035614
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.047928571701049805,
+      "per_file_time": {
+        "mean": 0.023964285850524902,
+        "std_dev": 0.000574286996325668
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.09703504043126684,
+      "rules_matched_ratio": 0.09703504043126684
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 299531840
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

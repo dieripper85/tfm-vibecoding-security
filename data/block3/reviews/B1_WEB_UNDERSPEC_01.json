@@ -1,0 +1,9 @@
+{
+  "sample_id": "B1_WEB_UNDERSPEC_01",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_0b966d34dba4c49f006ab9910d67ac87d2a22bc6fd260d414a",
+  "review": {
+    "vulnerabilities": []
+  },
+  "raw_response": "{\"vulnerabilities\":[]}"
+}

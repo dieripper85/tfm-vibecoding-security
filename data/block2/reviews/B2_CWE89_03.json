@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE89_03",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0a9e002cfbd8f223006ab746788c1887d2b099e90193add02f",
+  "executed_at_utc": "2026-09-26T04:13:50.518987+00:00",
+  "code_sha256": "04c951a90cf18546dc9d73adaf38c77a89c4a5feb4dc735ad86e94da26ffccf6",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "52733f3f569b4615bcaf1a928145824dfdabb4a63d62ccaec701db5cbfe51734",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Inyección SQL",
+        "location": "Función BenchmarkTest00284_post, construcción de la variable sql mediante una cadena f y posterior llamada cur.execute(sql)",
+        "explanation": "El parámetro de formulario BenchmarkTest00284, controlado por el cliente, se asigna a bar y se inserta directamente entre comillas en la consulta SQL. Un atacante puede introducir comillas y sintaxis SQL para modificar la condición WHERE y alterar la consulta ejecutada.",
+        "cwe": "CWE-89",
+        "severity": "HIGH",
+        "recommendation": "Utilizar una consulta parametrizada, por ejemplo: cur.execute(\"SELECT username FROM USERS WHERE password = ?\", (bar,)). No construir consultas SQL mediante interpolación, concatenación ni cadenas f con datos controlados por el usuario."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Inyección SQL\",\n      \"location\": \"Función BenchmarkTest00284_post, construcción de la variable sql mediante una cadena f y posterior llamada cur.execute(sql)\",\n      \"explanation\": \"El parámetro de formulario BenchmarkTest00284, controlado por el cliente, se asigna a bar y se inserta directamente entre comillas en la consulta SQL. Un atacante puede introducir comillas y sintaxis SQL para modificar la condición WHERE y alterar la consulta ejecutada.\",\n      \"cwe\": \"CWE-89\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Utilizar una consulta parametrizada, por ejemplo: cur.execute(\\\"SELECT username FROM USERS WHERE password = ?\\\", (bar,)). No construir consultas SQL mediante interpolación, concatenación ni cadenas f con datos controlados por el usuario.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

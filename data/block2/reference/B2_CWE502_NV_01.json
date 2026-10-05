@@ -1,0 +1,15 @@
+{
+  "sample_id": "B2_CWE502_NV_01",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00079",
+  "benchmark_category": "deserialization",
+  "reference_cwe": "CWE-502",
+  "reference_description": "Deserialization of Untrusted Data",
+  "real_vulnerability": false,
+  "sample_class": "negative",
+  "selection_seed": 20260925,
+  "selection_strategy": "5 non-vulnerable samples per CWE, deterministic sampling",
+  "source_relative_path": "testcode\\BenchmarkTest00079.py",
+  "code_sha256": "d762f7d6e76d17f354201f3153172948a85596b520bd18b6afb86342e02901c8"
+}

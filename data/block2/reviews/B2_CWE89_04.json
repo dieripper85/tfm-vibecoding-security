@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE89_04",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0bad5eca79fc5c1c006ab7467ee43087d2b7bace2b2b04bb48",
+  "executed_at_utc": "2026-09-26T04:13:54.646400+00:00",
+  "code_sha256": "855ea60577a8728f5b52c6fc2f68ba449888f50538ab3a7e151ce96a9b3c754d",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "f1cfb4eca9ee9adbf521c35e227fa66610b719db452b4b9b41b1e36398c9c780",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Inyección SQL",
+        "location": "Función BenchmarkTest00454_post(), construcción de la variable sql y llamada cur.execute(sql)",
+        "explanation": "El valor del encabezado HTTP BenchmarkTest00454, controlado por el cliente, se incorpora directamente en la consulta mediante una cadena f. La codificación y posterior decodificación Base64 restituyen exactamente el valor original y no proporcionan validación ni neutralización. Un atacante puede incluir comillas y sintaxis SQL para modificar la estructura de la consulta.",
+        "cwe": "CWE-89",
+        "severity": "HIGH",
+        "recommendation": "Utilizar una consulta parametrizada, por ejemplo: cur.execute('SELECT username FROM USERS WHERE password = ?', (bar,)). No construir consultas SQL mediante interpolación de cadenas. Aplicar además validación de formato y longitud al encabezado como medida de defensa en profundidad."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Inyección SQL\",\n      \"location\": \"Función BenchmarkTest00454_post(), construcción de la variable sql y llamada cur.execute(sql)\",\n      \"explanation\": \"El valor del encabezado HTTP BenchmarkTest00454, controlado por el cliente, se incorpora directamente en la consulta mediante una cadena f. La codificación y posterior decodificación Base64 restituyen exactamente el valor original y no proporcionan validación ni neutralización. Un atacante puede incluir comillas y sintaxis SQL para modificar la estructura de la consulta.\",\n      \"cwe\": \"CWE-89\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Utilizar una consulta parametrizada, por ejemplo: cur.execute('SELECT username FROM USERS WHERE password = ?', (bar,)). No construir consultas SQL mediante interpolación de cadenas. Aplicar además validación de formato y longitud al encabezado como medida de defensa en profundidad.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

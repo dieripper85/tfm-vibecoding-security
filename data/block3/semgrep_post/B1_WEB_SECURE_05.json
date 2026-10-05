@@ -1,0 +1,128 @@
+{
+  "version": "1.178.0",
+  "results": [
+    {
+      "check_id": "tools.semgrep-rules.python.flask.security.audit.render-template-string",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_WEB_SECURE_05.py",
+      "start": {
+        "line": 24,
+        "col": 12,
+        "offset": 472
+      },
+      "end": {
+        "line": 24,
+        "col": 61,
+        "offset": 521
+      },
+      "extra": {
+        "message": "Found a template created with string formatting. This is susceptible to server-side template injection and cross-site scripting attacks.",
+        "metadata": {
+          "cwe": [
+            "CWE-96: Improper Neutralization of Directives in Statically Saved Code ('Static Code Injection')"
+          ],
+          "owasp": [
+            "A03:2021 - Injection",
+            "A05:2025 - Injection"
+          ],
+          "references": [
+            "https://nvisium.com/blog/2016/03/09/exploring-ssti-in-flask-jinja2.html"
+          ],
+          "category": "security",
+          "technology": [
+            "flask"
+          ],
+          "subcategory": [
+            "audit"
+          ],
+          "likelihood": "LOW",
+          "impact": "MEDIUM",
+          "confidence": "LOW"
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    }
+  ],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_WEB_SECURE_05.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.1249387264251709,
+    "profiling_times": {
+      "config_time": 18.71603560447693,
+      "core_time": 0.4199028015136719,
+      "ignores_time": 0.0009341239929199219,
+      "total_time": 19.16648268699646
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.03127408027648926,
+      "per_file_time": {
+        "mean": 0.01563704013824463,
+        "std_dev": 0.0002445170242850736
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.10512129380053908,
+      "rules_matched_ratio": 0.10512129380053908
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 299449728
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

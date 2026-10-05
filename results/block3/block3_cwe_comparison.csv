@@ -1,0 +1,6 @@
+﻿cwe,pre_raw_findings,post_raw_findings,difference,reduction_pct,pre_affected_samples,post_affected_samples,status
+CWE-1333,2,0,-2,100.0,2,0,ELIMINATED
+CWE-489,8,0,-8,100.0,8,0,ELIMINATED
+CWE-668,6,1,-5,83.33,6,1,PERSISTENT
+CWE-78,32,33,1,-3.12,15,15,PERSISTENT
+CWE-96,14,14,0,0.0,14,14,PERSISTENT

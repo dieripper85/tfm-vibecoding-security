@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE78_02",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_05ab96517090ce41006ab74625cb1c87d290ce09de0246ec35",
+  "executed_at_utc": "2026-09-26T04:12:33.518762+00:00",
+  "code_sha256": "8a9aeea0ecab0b766af73a0152b1a3999e023e6e7e0bd078bbd3d46a47c3911d",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "7e633101986dfda7710871ab09420c9ae12d72f4cd28435b2145413942d480b3",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Inyección de comandos del sistema operativo",
+        "location": "BenchmarkTest00431_post(), construcción de argStr con f\"echo {bar}\" y ejecución mediante subprocess.run(..., shell=True)",
+        "explanation": "El valor de bar procede del nombre de un campo de request.form, controlado por el cliente. Este valor se concatena directamente en una cadena de comandos que se ejecuta a través de un intérprete de comandos con shell=True. Un atacante puede incluir metacaracteres del shell para ejecutar comandos arbitrarios con los privilegios del proceso de la aplicación.",
+        "cwe": "CWE-78",
+        "severity": "CRITICAL",
+        "recommendation": "Evitar por completo el uso del shell. Para esta operación, devolver o procesar el valor directamente sin invocar un comando externo. Si la ejecución fuera imprescindible, usar una lista de argumentos, por ejemplo subprocess.run([\"echo\", bar], shell=False, ...), y aplicar una validación estricta mediante una lista permitida de valores o caracteres."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Inyección de comandos del sistema operativo\",\n      \"location\": \"BenchmarkTest00431_post(), construcción de argStr con f\\\"echo {bar}\\\" y ejecución mediante subprocess.run(..., shell=True)\",\n      \"explanation\": \"El valor de bar procede del nombre de un campo de request.form, controlado por el cliente. Este valor se concatena directamente en una cadena de comandos que se ejecuta a través de un intérprete de comandos con shell=True. Un atacante puede incluir metacaracteres del shell para ejecutar comandos arbitrarios con los privilegios del proceso de la aplicación.\",\n      \"cwe\": \"CWE-78\",\n      \"severity\": \"CRITICAL\",\n      \"recommendation\": \"Evitar por completo el uso del shell. Para esta operación, devolver o procesar el valor directamente sin invocar un comando externo. Si la ejecución fuera imprescindible, usar una lista de argumentos, por ejemplo subprocess.run([\\\"echo\\\", bar], shell=False, ...), y aplicar una validación estricta mediante una lista permitida de valores o caracteres.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

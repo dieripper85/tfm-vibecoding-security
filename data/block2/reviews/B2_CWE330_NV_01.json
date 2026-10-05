@@ -1,0 +1,42 @@
+{
+  "sample_id": "B2_CWE330_NV_01",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_09362846b01ffea5006ac29e30885087d2a0bb17614c27312d",
+  "executed_at_utc": "2026-10-04T18:43:18.189415+00:00",
+  "code_sha256": "e5246a54d5ebbf1bc09e7a2c0010819303b780e6a0e3b80aaa817a2cd23977d8",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "4d5e866a49d94130594a8c8ffd088410791be65a89f7f51851e669a888c10919",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Entropía insuficiente en token de autenticación persistente",
+        "location": "BenchmarkTest00316_post, generación de value mediante random.SystemRandom().randint(0, 2**32)",
+        "explanation": "Aunque SystemRandom utiliza una fuente criptográficamente segura, el token solo dispone de aproximadamente 32 bits de entropía. Si se utiliza como credencial remember-me, este espacio es demasiado pequeño y permite ataques de adivinación o fuerza bruta, especialmente al no observarse limitación de intentos.",
+        "cwe": "CWE-331",
+        "severity": "HIGH",
+        "recommendation": "Generar tokens con al menos 128 bits de entropía, por ejemplo mediante secrets.token_urlsafe(32), y aplicar expiración, rotación y limitación de intentos de validación."
+      },
+      {
+        "type": "Exposición de token de autenticación en la respuesta",
+        "location": "BenchmarkTest00316_post, rama else que incorpora mysession[cookie] en RESPONSE",
+        "explanation": "El valor utilizado posteriormente para validar la cookie remember-me se devuelve explícitamente en el cuerpo de la respuesta. Cualquier cliente puede obtener esta credencial y reutilizarla como cookie para superar la comprobación de retorno.",
+        "cwe": "CWE-200",
+        "severity": "HIGH",
+        "recommendation": "No incluir tokens de autenticación o sesión en el contenido de la respuesta. Entregar el token únicamente mediante una cabecera Set-Cookie configurada con Secure, HttpOnly y SameSite, y evitar registrarlo o mostrarlo."
+      },
+      {
+        "type": "Emisión de credencial remember-me sin autenticación previa",
+        "location": "BenchmarkTest00316_post, rama else que asigna mysession[cookie] = value",
+        "explanation": "Cuando la cookie no está presente o no coincide, el endpoint genera una nueva credencial asociada al usuario fijo SafeIsaac316 sin comprobar previamente la identidad del solicitante. Por tanto, cualquier cliente puede obtener una credencial válida para esa identidad; además, una solicitud no autenticada reemplaza el valor almacenado.",
+        "cwe": "CWE-287",
+        "severity": "HIGH",
+        "recommendation": "Emitir tokens remember-me únicamente después de autenticar correctamente al usuario. Asociar cada token a una identidad y dispositivo concretos, almacenar una representación hash del token, permitir su revocación y no reemplazar credenciales globales desde solicitudes anónimas."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Entropía insuficiente en token de autenticación persistente\",\n      \"location\": \"BenchmarkTest00316_post, generación de value mediante random.SystemRandom().randint(0, 2**32)\",\n      \"explanation\": \"Aunque SystemRandom utiliza una fuente criptográficamente segura, el token solo dispone de aproximadamente 32 bits de entropía. Si se utiliza como credencial remember-me, este espacio es demasiado pequeño y permite ataques de adivinación o fuerza bruta, especialmente al no observarse limitación de intentos.\",\n      \"cwe\": \"CWE-331\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Generar tokens con al menos 128 bits de entropía, por ejemplo mediante secrets.token_urlsafe(32), y aplicar expiración, rotación y limitación de intentos de validación.\"\n    },\n    {\n      \"type\": \"Exposición de token de autenticación en la respuesta\",\n      \"location\": \"BenchmarkTest00316_post, rama else que incorpora mysession[cookie] en RESPONSE\",\n      \"explanation\": \"El valor utilizado posteriormente para validar la cookie remember-me se devuelve explícitamente en el cuerpo de la respuesta. Cualquier cliente puede obtener esta credencial y reutilizarla como cookie para superar la comprobación de retorno.\",\n      \"cwe\": \"CWE-200\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"No incluir tokens de autenticación o sesión en el contenido de la respuesta. Entregar el token únicamente mediante una cabecera Set-Cookie configurada con Secure, HttpOnly y SameSite, y evitar registrarlo o mostrarlo.\"\n    },\n    {\n      \"type\": \"Emisión de credencial remember-me sin autenticación previa\",\n      \"location\": \"BenchmarkTest00316_post, rama else que asigna mysession[cookie] = value\",\n      \"explanation\": \"Cuando la cookie no está presente o no coincide, el endpoint genera una nueva credencial asociada al usuario fijo SafeIsaac316 sin comprobar previamente la identidad del solicitante. Por tanto, cualquier cliente puede obtener una credencial válida para esa identidad; además, una solicitud no autenticada reemplaza el valor almacenado.\",\n      \"cwe\": \"CWE-287\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Emitir tokens remember-me únicamente después de autenticar correctamente al usuario. Asociar cada token a una identidad y dispositivo concretos, almacenar una representación hash del token, permitir su revocación y no reemplazar credenciales globales desde solicitudes anónimas.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

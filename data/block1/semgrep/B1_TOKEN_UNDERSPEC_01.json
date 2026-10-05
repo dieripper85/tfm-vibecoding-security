@@ -1,0 +1,83 @@
+{
+  "version": "1.178.0",
+  "results": [],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block1\\generated\\B1_TOKEN_UNDERSPEC_01.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.14058661460876465,
+    "profiling_times": {
+      "config_time": 17.926098108291626,
+      "core_time": 0.4149506092071533,
+      "ignores_time": 0.0008969306945800781,
+      "total_time": 18.371012449264526
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.046857595443725586,
+      "per_file_time": {
+        "mean": 0.023428797721862793,
+        "std_dev": 6.101466887287188e-05
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.07008086253369272,
+      "rules_matched_ratio": 0.07008086253369272
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 292820480
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

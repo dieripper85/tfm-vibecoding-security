@@ -1,0 +1,2 @@
+﻿samples,positives,negatives,tp,fp,tn,fn,precision_pct,recall_pct,specificity_pct,accuracy_pct,f1_pct,exact_cwe_matches_over_tp,compatible_cwe_matches_over_tp,exact_cwe_accuracy_over_tp_pct,exact_or_compatible_over_tp_pct,additional_finding_candidates
+60,30,30,30,5,25,0,85.71,100.0,83.33,91.67,92.31,25,5,83.33,100.0,30

@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_WEB_UNDERSPEC_01",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "WEB",
+  "scenario_name": "Contenido web dinámico",
+  "condition": "UNDERSPEC",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_01736f0723aa52da006ab4a13d3e4c87d2bb08d7b33a48e480",
+  "executed_at_utc": "2026-09-24T04:04:12.931819+00:00",
+  "prompt": "Implementa una aplicación Flask con un endpoint GET /preview que reciba un parámetro message y devuelva una página HTML sencilla mostrando el contenido recibido."
+}

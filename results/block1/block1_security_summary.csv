@@ -1,0 +1,4 @@
+﻿condition,samples,samples_with_security_findings,rate_security_findings_pct,security_raw_findings,unique_cwe_per_sample_total,avg_security_findings_per_sample
+UNDERSPEC,30,11,36.67,26,19,0.87
+NEUTRAL,30,10,33.33,27,17,0.9
+SECURE,30,9,30.0,9,9,0.3

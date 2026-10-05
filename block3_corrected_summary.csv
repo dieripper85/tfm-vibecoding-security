@@ -1,0 +1,6 @@
+﻿Métrica,PRE,POST,Variación
+Alertas SECURITY,62,48,-14
+Verdaderos positivos,8,0,-8
+Falsos positivos,48,47,-1
+Dependientes del contexto,6,1,-5
+Muestras con vulnerabilidad confirmada,8,0,-8

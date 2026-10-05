@@ -1,0 +1,2 @@
+﻿samples,pre_security_findings,post_all_raw_findings,post_security_findings,post_quality_findings,post_other_findings,security_absolute_reduction,security_reduction_pct,fully_remediated_samples,fully_remediated_rate_pct,residual_samples,partial_reduction_samples,unchanged_count_samples,increased_samples,pre_unique_cwes,post_unique_cwes,eliminated_cwe_categories,persistent_cwe_categories,new_cwe_categories
+30,62,144,48,96,0,14,22.58,1,3.33,29,11,18,0,CWE-1333 | CWE-489 | CWE-668 | CWE-78 | CWE-96,CWE-668 | CWE-78 | CWE-96,CWE-1333 | CWE-489,CWE-668 | CWE-78 | CWE-96,

@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_05",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_0926549d7fe302a5006ab990eab36c87d2b2a8858ce63cc65f",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado",
+        "location": "Bloque principal: app.run(debug=True)",
+        "explanation": "La aplicación inicia Flask con el modo de depuración activado. Si el servicio resulta accesible por usuarios no confiables, las páginas de error pueden revelar trazas, rutas internas, configuración y otros datos sensibles. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código si un atacante consigue acceder a él y superar o eludir sus protecciones.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar la depuración fuera de entornos de desarrollo, por ejemplo usando app.run(debug=False), y desplegar la aplicación mediante un servidor WSGI de producción. Gestionar la opción de depuración mediante una configuración segura específica para cada entorno y evitar exponer el servidor de desarrollo."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Modo de depuración habilitado\",\n      \"location\": \"Bloque principal: app.run(debug=True)\",\n      \"explanation\": \"La aplicación inicia Flask con el modo de depuración activado. Si el servicio resulta accesible por usuarios no confiables, las páginas de error pueden revelar trazas, rutas internas, configuración y otros datos sensibles. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código si un atacante consigue acceder a él y superar o eludir sus protecciones.\",\n      \"cwe\": \"CWE-489\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Deshabilitar la depuración fuera de entornos de desarrollo, por ejemplo usando app.run(debug=False), y desplegar la aplicación mediante un servidor WSGI de producción. Gestionar la opción de depuración mediante una configuración segura específica para cada entorno y evitar exponer el servidor de desarrollo.\"\n    }\n  ]\n}"
+}

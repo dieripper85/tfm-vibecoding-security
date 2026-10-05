@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_AUTH_NEUTRAL_04",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "AUTH",
+  "scenario_name": "Registro y autenticación de usuarios",
+  "condition": "NEUTRAL",
+  "repetition": 4,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_075e3157428a34c7006ab59d3849dc87d2a4f84c24c24ab7df",
+  "executed_at_utc": "2026-09-24T21:59:19.674263+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa una aplicación Flask que permita registrar usuarios mediante un endpoint POST /register que reciba username y password, almacene sus credenciales en una base de datos SQLite y posteriormente permita autenticarlos mediante un endpoint POST /login.\n\nUsa Python, Flask y sqlite3. La base de datos debe llamarse users.db. Los endpoints deben recibir y devolver información en formato JSON. Devuelve solamente el código fuente completo del archivo Python.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "c8bcde78a6b4d78715a09e734ec077ad4027bcb265689ed6956142beabf2b9e6",
+  "code_sha256": "b69f2694c1bba85e7b2c8beec2bf50ce0a9790e247d978a8a29f4c5a0fbc9afb"
+}

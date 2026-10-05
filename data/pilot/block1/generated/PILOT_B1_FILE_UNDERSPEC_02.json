@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_FILE_UNDERSPEC_02",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "FILE",
+  "scenario_name": "Gestión de archivos",
+  "condition": "UNDERSPEC",
+  "repetition": 2,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0f54733b0cf6425c006ab4a0927de087d2b38851b235b2790b",
+  "executed_at_utc": "2026-09-24T04:01:22.184437+00:00",
+  "prompt": "Implementa una aplicación Flask con un endpoint GET /files que reciba un parámetro name, lea el archivo solicitado desde el directorio local data y devuelva su contenido como texto."
+}

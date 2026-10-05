@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE330_01",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_058912554a9686a5006ab7459a92e887d2ba48d6561d425d1d",
+  "executed_at_utc": "2026-09-26T04:10:26.539881+00:00",
+  "code_sha256": "8b5df7dcb3a862e0e13781a7f0406236a04be81a2e870cf93c21c4b14a987a08",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "38b03b56cf7720389f88f8512dcd02d4b9699813903d0eb050145e9e79047bd7",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Generación criptográficamente débil de token",
+        "location": "BenchmarkTest00025_post(), asignación de value mediante random.normalvariate()",
+        "explanation": "El valor usado como token de la funcionalidad \"remember me\" se genera con el módulo random, que no es criptográficamente seguro y cuyo estado puede ser predecible. Además, convertir un número de coma flotante a texto y eliminar sus dos primeros caracteres reduce y distorsiona la entropía, pudiendo provocar tokens más fáciles de predecir o con colisiones. Un atacante que obtenga o reconstruya el estado del generador podría producir valores válidos.",
+        "cwe": "CWE-338",
+        "severity": "HIGH",
+        "recommendation": "Generar el token con un CSPRNG, por ejemplo secrets.token_urlsafe(32), y comparar su versión almacenada de forma segura. Utilizar tokens suficientemente largos, invalidarlos tras su uso o rotación y aplicar una expiración explícita."
+      },
+      {
+        "type": "Autenticación inadecuada y exposición de credencial de sesión persistente",
+        "location": "BenchmarkTest00025_post(), bloque else que asigna mysession[cookie] y devuelve su valor en RESPONSE",
+        "explanation": "Cuando el cliente no presenta un token válido, el código crea uno nuevo sin exigir autenticación previa y lo revela íntegramente en la respuesta. El mismo valor se acepta posteriormente como prueba para mostrar al usuario como recordado. Por tanto, cualquier cliente puede solicitar un token, copiarlo a la cookie rememberMe00025 y superar la comprobación. Además, el almacenamiento se indexa únicamente por un nombre de cookie constante, sin asociación visible con una sesión o identidad autenticada concreta.",
+        "cwe": "CWE-287",
+        "severity": "HIGH",
+        "recommendation": "Emitir tokens de \"remember me\" únicamente después de una autenticación correcta, asociarlos en el servidor a un usuario concreto y no incluirlos en el cuerpo de la respuesta. Enviarlos mediante Set-Cookie con Secure, HttpOnly y una política SameSite apropiada, establecer expiración y rotación, y almacenar en el servidor solo un hash del token cuando sea viable."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Generación criptográficamente débil de token\",\n      \"location\": \"BenchmarkTest00025_post(), asignación de value mediante random.normalvariate()\",\n      \"explanation\": \"El valor usado como token de la funcionalidad \\\"remember me\\\" se genera con el módulo random, que no es criptográficamente seguro y cuyo estado puede ser predecible. Además, convertir un número de coma flotante a texto y eliminar sus dos primeros caracteres reduce y distorsiona la entropía, pudiendo provocar tokens más fáciles de predecir o con colisiones. Un atacante que obtenga o reconstruya el estado del generador podría producir valores válidos.\",\n      \"cwe\": \"CWE-338\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Generar el token con un CSPRNG, por ejemplo secrets.token_urlsafe(32), y comparar su versión almacenada de forma segura. Utilizar tokens suficientemente largos, invalidarlos tras su uso o rotación y aplicar una expiración explícita.\"\n    },\n    {\n      \"type\": \"Autenticación inadecuada y exposición de credencial de sesión persistente\",\n      \"location\": \"BenchmarkTest00025_post(), bloque else que asigna mysession[cookie] y devuelve su valor en RESPONSE\",\n      \"explanation\": \"Cuando el cliente no presenta un token válido, el código crea uno nuevo sin exigir autenticación previa y lo revela íntegramente en la respuesta. El mismo valor se acepta posteriormente como prueba para mostrar al usuario como recordado. Por tanto, cualquier cliente puede solicitar un token, copiarlo a la cookie rememberMe00025 y superar la comprobación. Además, el almacenamiento se indexa únicamente por un nombre de cookie constante, sin asociación visible con una sesión o identidad autenticada concreta.\",\n      \"cwe\": \"CWE-287\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Emitir tokens de \\\"remember me\\\" únicamente después de una autenticación correcta, asociarlos en el servidor a un usuario concreto y no incluirlos en el cuerpo de la respuesta. Enviarlos mediante Set-Cookie con Secure, HttpOnly y una política SameSite apropiada, establecer expiración y rotación, y almacenar en el servidor solo un hash del token cuando sea viable.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

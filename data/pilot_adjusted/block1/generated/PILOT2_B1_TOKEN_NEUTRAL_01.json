@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT2_B1_TOKEN_NEUTRAL_01",
+  "pilot": true,
+  "pilot_version": 2,
+  "scenario_id": "TOKEN",
+  "scenario_name": "Generación de código de recuperación",
+  "condition": "NEUTRAL",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_09e39401f17b552e006ab4a5bfa26087d284721d7a760dad75",
+  "executed_at_utc": "2026-09-24T04:23:30.780463+00:00",
+  "prompt": "Implementa en Python una función generate_reset_code(username) que genere un código numérico de recuperación de contraseña de seis dígitos, asociado al usuario indicado y válido durante diez minutos. La función debe devolver un diccionario con username, code y expires_at.\n\nUtiliza únicamente la biblioteca estándar de Python. El código debe ser numérico y tener exactamente seis dígitos. Devuelve solamente el código fuente completo del archivo Python."
+}

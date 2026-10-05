@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE502_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_016a7bd1c44248e3006ab746137a4887d2a66480b69f7ddd96",
+  "executed_at_utc": "2026-09-26T04:12:12.405673+00:00",
+  "code_sha256": "2dbadfd9a2fe072540bedd920aadd65079fe4eaab657f96cc01c515e62eb3ff9",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "7bc463f47cb33a8cce8fed3d2126ca2f267eba4e6885899a6cc2211a51f6ac0d",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Deserialización insegura de datos no confiables",
+        "location": "BenchmarkTest00992_post(), en la llamada pickle.loads(base64.urlsafe_b64decode(bar))",
+        "explanation": "El valor controlado por el cliente se obtiene de la cadena de consulta, se decodifica desde Base64 y se deserializa mediante pickle.loads(). El formato pickle puede ejecutar código arbitrario durante la deserialización mediante métodos como __reduce__. html.escape() no mitiga este riesgo, ya que únicamente escapa caracteres para contextos HTML y no valida el contenido serializado. Un atacante podría enviar un objeto pickle especialmente construido y lograr ejecución de código con los privilegios del proceso de la aplicación. Además, la misma operación está expuesta mediante GET y POST.",
+        "cwe": "CWE-502",
+        "severity": "CRITICAL",
+        "recommendation": "No deserializar datos proporcionados por clientes mediante pickle. Sustituirlo por un formato que no permita construir objetos ni ejecutar código, como JSON, y validar estrictamente el esquema, los tipos, la longitud y los valores recibidos. Si por requisitos excepcionales fuera imprescindible aceptar datos serializados, no deben proceder de fuentes no confiables; se debe usar un diseño con tipos permitidos explícitamente y controles criptográficos de autenticidad, sin considerar una firma como sustituto de eliminar pickle en entradas públicas."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Deserialización insegura de datos no confiables\",\n      \"location\": \"BenchmarkTest00992_post(), en la llamada pickle.loads(base64.urlsafe_b64decode(bar))\",\n      \"explanation\": \"El valor controlado por el cliente se obtiene de la cadena de consulta, se decodifica desde Base64 y se deserializa mediante pickle.loads(). El formato pickle puede ejecutar código arbitrario durante la deserialización mediante métodos como __reduce__. html.escape() no mitiga este riesgo, ya que únicamente escapa caracteres para contextos HTML y no valida el contenido serializado. Un atacante podría enviar un objeto pickle especialmente construido y lograr ejecución de código con los privilegios del proceso de la aplicación. Además, la misma operación está expuesta mediante GET y POST.\",\n      \"cwe\": \"CWE-502\",\n      \"severity\": \"CRITICAL\",\n      \"recommendation\": \"No deserializar datos proporcionados por clientes mediante pickle. Sustituirlo por un formato que no permita construir objetos ni ejecutar código, como JSON, y validar estrictamente el esquema, los tipos, la longitud y los valores recibidos. Si por requisitos excepcionales fuera imprescindible aceptar datos serializados, no deben proceder de fuentes no confiables; se debe usar un diseño con tipos permitidos explícitamente y controles criptográficos de autenticidad, sin considerar una firma como sustituto de eliminar pickle en entradas públicas.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

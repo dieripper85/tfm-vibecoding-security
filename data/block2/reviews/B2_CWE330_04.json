@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE330_04",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0af0861f51db1048006ab745d06fb487d2a7a6d976b57d7823",
+  "executed_at_utc": "2026-09-26T04:11:09.817780+00:00",
+  "code_sha256": "0d45e5c5c53fde039d22909d684a7e66cc1a522378b9221d6955f8e33dd78dd3",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "88a9cb93cd4c980cb912901e0c4f67bf9c2ba390458f2749d97b80073287554d",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Generación predecible de token de autenticación",
+        "location": "BenchmarkTest00774_post(), asignación value = str(random.randint(0, 2**32))",
+        "explanation": "El valor usado como token de la cookie rememberMe se genera con el módulo random, que utiliza un generador pseudoaleatorio no criptográfico y potencialmente predecible. Además, el espacio de aproximadamente 32 bits es insuficiente frente a ataques de adivinación. Un atacante capaz de predecir o encontrar el token podría superar la comprobación de la cookie.",
+        "cwe": "CWE-338",
+        "severity": "HIGH",
+        "recommendation": "Generar el token con un generador criptográficamente seguro, por ejemplo secrets.token_urlsafe(32) o secrets.token_hex(32), y aplicar expiración y rotación adecuadas."
+      },
+      {
+        "type": "Exposición de credencial de sesión en la respuesta",
+        "location": "BenchmarkTest00774_post(), rama else que incorpora mysession[cookie] en RESPONSE",
+        "explanation": "El valor utilizado posteriormente para validar la cookie se devuelve explícitamente dentro del cuerpo HTML. Al tratarse de una credencial de autenticación persistente, su inclusión en el contenido de la página aumenta su exposición a scripts, registros, herramientas de monitorización o intermediarios que capturen respuestas.",
+        "cwe": "CWE-200",
+        "severity": "MEDIUM",
+        "recommendation": "No incluir el token en el cuerpo de la respuesta. Transmitirlo únicamente mediante una cabecera Set-Cookie con los atributos Secure, HttpOnly y SameSite apropiados, y evitar registrar o mostrar su valor."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Generación predecible de token de autenticación\",\n      \"location\": \"BenchmarkTest00774_post(), asignación value = str(random.randint(0, 2**32))\",\n      \"explanation\": \"El valor usado como token de la cookie rememberMe se genera con el módulo random, que utiliza un generador pseudoaleatorio no criptográfico y potencialmente predecible. Además, el espacio de aproximadamente 32 bits es insuficiente frente a ataques de adivinación. Un atacante capaz de predecir o encontrar el token podría superar la comprobación de la cookie.\",\n      \"cwe\": \"CWE-338\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Generar el token con un generador criptográficamente seguro, por ejemplo secrets.token_urlsafe(32) o secrets.token_hex(32), y aplicar expiración y rotación adecuadas.\"\n    },\n    {\n      \"type\": \"Exposición de credencial de sesión en la respuesta\",\n      \"location\": \"BenchmarkTest00774_post(), rama else que incorpora mysession[cookie] en RESPONSE\",\n      \"explanation\": \"El valor utilizado posteriormente para validar la cookie se devuelve explícitamente dentro del cuerpo HTML. Al tratarse de una credencial de autenticación persistente, su inclusión en el contenido de la página aumenta su exposición a scripts, registros, herramientas de monitorización o intermediarios que capturen respuestas.\",\n      \"cwe\": \"CWE-200\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"No incluir el token en el cuerpo de la respuesta. Transmitirlo únicamente mediante una cabecera Set-Cookie con los atributos Secure, HttpOnly y SameSite apropiados, y evitar registrar o mostrar su valor.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

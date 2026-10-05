@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_03",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_01fb2fdce1aa58b1006ab990d7683887d28af71b79f9f41101",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado",
+        "location": "Bloque principal: app.run(debug=True)",
+        "explanation": "La aplicación inicia Flask con el modo de depuración activo. Si este servidor se ejecuta en un entorno accesible por usuarios no confiables, las excepciones pueden revelar trazas, rutas, variables y otros detalles internos. Además, el depurador interactivo de Werkzeug puede incrementar significativamente el impacto y, si sus protecciones son eludidas o está mal expuesto, permitir ejecución de código. Aunque la configuración predeterminada suele escuchar solo en la interfaz local, no debe dependerse de ello como control de seguridad.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar explícitamente la depuración en producción, por ejemplo usando app.run(debug=False), y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración por entorno y evitar que una variable o configuración de despliegue pueda activar accidentalmente el depurador en sistemas accesibles."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Modo de depuración habilitado\",\n      \"location\": \"Bloque principal: app.run(debug=True)\",\n      \"explanation\": \"La aplicación inicia Flask con el modo de depuración activo. Si este servidor se ejecuta en un entorno accesible por usuarios no confiables, las excepciones pueden revelar trazas, rutas, variables y otros detalles internos. Además, el depurador interactivo de Werkzeug puede incrementar significativamente el impacto y, si sus protecciones son eludidas o está mal expuesto, permitir ejecución de código. Aunque la configuración predeterminada suele escuchar solo en la interfaz local, no debe dependerse de ello como control de seguridad.\",\n      \"cwe\": \"CWE-489\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Deshabilitar explícitamente la depuración en producción, por ejemplo usando app.run(debug=False), y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración por entorno y evitar que una variable o configuración de despliegue pueda activar accidentalmente el depurador en sistemas accesibles.\"\n    }\n  ]\n}"
+}

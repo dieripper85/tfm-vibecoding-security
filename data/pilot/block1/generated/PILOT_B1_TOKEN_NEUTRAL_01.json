@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_TOKEN_NEUTRAL_01",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "TOKEN",
+  "scenario_name": "Generación de token sensible",
+  "condition": "NEUTRAL",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_02a2156ca6278478006ab4a15ea84487d28cfc11dd02ca96e1",
+  "executed_at_utc": "2026-09-24T04:04:46.241746+00:00",
+  "prompt": "Implementa en Python una función generate_reset_token(username) que genere un token de recuperación de contraseña y devuelva un diccionario con username, token y fecha de expiración.\n\nEl token debe poder utilizarse posteriormente para identificar una solicitud de recuperación. Utiliza únicamente la biblioteca estándar de Python. Devuelve solamente el código fuente completo del archivo Python."
+}

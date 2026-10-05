@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_CMD_SECURE_03",
+  "experiment": "TFM_Block3_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_review": "gpt-5.6-sol",
+  "model_remediation": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "review_response_id": "resp_09f29235fcc9b251006ab98c8519a087d28dabd0e713276ece",
+  "remediation_response_id": "resp_05f2704b53d48c7a006ab98ca33f6c87d291e6531d01d0dc21",
+  "executed_at_utc": "2026-09-27T21:38:48.166922+00:00",
+  "review_findings": 4,
+  "source_sha256": "1d39433e28d12ba886c2dc5253e69e418aa4c37e4877b6daa567cb53938895b6",
+  "review_sha256": "61727d31696f501d9d73e79df4f89fbe4e0840feec50868ef985763aaa628d43",
+  "remediated_sha256": "35e76d57a3ed2d99b57744b0fc0ab58df3635ef52974317808a4af65a3db8d51",
+  "review_system_prompt_sha256": "60940b800e926cda5867162b62db8a7f4f07061aeadba8dcb75ac884a6945703",
+  "remediation_system_prompt_sha256": "3fe1c068a02cc4c4d04d1655f529c55b2d866bdd084060f7dcd0920d01754ec9",
+  "review_user_prompt_sha256": "1b12bef606dcabad2be5f3fce421acb4af69185004297475ebd26e96e5a8705d",
+  "remediation_user_prompt_sha256": "ec47bfcb484faf72db89554e03842d563f3961fa02bc89ce892f44d226d29760"
+}

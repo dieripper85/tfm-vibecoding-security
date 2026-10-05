@@ -1,0 +1,83 @@
+{
+  "version": "1.178.0",
+  "results": [],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block1\\generated\\B1_AUTH_NEUTRAL_03.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.13203716278076172,
+    "profiling_times": {
+      "config_time": 18.049135208129883,
+      "core_time": 0.4540863037109375,
+      "ignores_time": 0.0009503364562988281,
+      "total_time": 18.536185264587402
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.09663939476013184,
+      "per_file_time": {
+        "mean": 0.04831969738006592,
+        "std_dev": 0.002334793154901149
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.12398921832884097,
+      "rules_matched_ratio": 0.12398921832884097
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 305707392
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

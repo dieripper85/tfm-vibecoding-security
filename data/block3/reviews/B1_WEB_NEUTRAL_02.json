@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_02",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_095a2b1a264d57c6006ab990caf68487d2bc56592c9e39f5b9",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado en producción",
+        "location": "Bloque principal: app.run(debug=True)",
+        "explanation": "El modo de depuración de Flask puede mostrar trazas, variables internas y otra información sensible ante errores. Además, el depurador interactivo puede permitir la ejecución de código si queda accesible para usuarios no autorizados. Aunque el servidor se enlaza por defecto a la interfaz local, la configuración es peligrosa si se publica mediante cambios de red, contenedores o proxies.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar el modo de depuración fuera de un entorno de desarrollo controlado. No codificar debug=True; gestionar esta opción mediante una configuración segura por entorno y desplegar la aplicación usando un servidor WSGI de producción."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Modo de depuración habilitado en producción\",\n      \"location\": \"Bloque principal: app.run(debug=True)\",\n      \"explanation\": \"El modo de depuración de Flask puede mostrar trazas, variables internas y otra información sensible ante errores. Además, el depurador interactivo puede permitir la ejecución de código si queda accesible para usuarios no autorizados. Aunque el servidor se enlaza por defecto a la interfaz local, la configuración es peligrosa si se publica mediante cambios de red, contenedores o proxies.\",\n      \"cwe\": \"CWE-489\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Deshabilitar el modo de depuración fuera de un entorno de desarrollo controlado. No codificar debug=True; gestionar esta opción mediante una configuración segura por entorno y desplegar la aplicación usando un servidor WSGI de producción.\"\n    }\n  ]\n}"
+}

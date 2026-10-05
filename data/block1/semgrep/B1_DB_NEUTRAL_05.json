@@ -1,0 +1,112 @@
+{
+  "version": "1.178.0",
+  "results": [
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.useless-inner-function",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block1\\generated\\B1_DB_NEUTRAL_05.py",
+      "start": {
+        "line": 9,
+        "col": 5,
+        "offset": 156
+      },
+      "end": {
+        "line": 23,
+        "col": 55,
+        "offset": 701
+      },
+      "extra": {
+        "message": "function `search_users` is defined inside a function but never used",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    }
+  ],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block1\\generated\\B1_DB_NEUTRAL_05.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.1093289852142334,
+    "profiling_times": {
+      "config_time": 18.09644389152527,
+      "core_time": 0.393404483795166,
+      "ignores_time": 0.0007572174072265625,
+      "total_time": 18.52237296104431
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.046898841857910156,
+      "per_file_time": {
+        "mean": 0.023449420928955078,
+        "std_dev": 0.0005498753419033164
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.1293800539083558,
+      "rules_matched_ratio": 0.1293800539083558
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 301078848
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

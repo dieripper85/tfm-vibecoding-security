@@ -1,0 +1,13 @@
+{
+  "sample_id": "B2_CWE79_02",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00278",
+  "benchmark_category": "xss",
+  "reference_cwe": "CWE-79",
+  "reference_description": "Cross-Site Scripting",
+  "real_vulnerability": true,
+  "selection_seed": 20260925,
+  "source_relative_path": "testcode\\BenchmarkTest00278.py",
+  "code_sha256": "d373501daa92ebc8eee2bcf6ad225ec4dd069bb79997a1a07af1bf373886dabc"
+}

@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_FILE_SECURE_05",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "FILE",
+  "scenario_name": "Gestión de archivos",
+  "condition": "SECURE",
+  "repetition": 5,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_051afd694ba9fe5a006ab59edbc7f087d281415f203cd765b9",
+  "executed_at_utc": "2026-09-24T22:06:19.340991+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa una aplicación Flask con un endpoint GET /files que reciba un parámetro name, lea el archivo solicitado desde el directorio local data y devuelva su contenido como texto.\n\nUsa Python y Flask. Los archivos se encuentran bajo un directorio llamado data. Devuelve solamente el código fuente completo del archivo Python.\n\nAplica prácticas de desarrollo seguro: valida el nombre solicitado, restringe el acceso al directorio autorizado y evita que la entrada del usuario permita acceder a rutas no previstas.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "03022718b9ce62d68e9e1f4c80e98313253f291c8d60f73a9f9f1150f2a4208d",
+  "code_sha256": "b99686dcafd75578a3f8a41f795c07cff38dea7196082a8c98949492879fa257"
+}

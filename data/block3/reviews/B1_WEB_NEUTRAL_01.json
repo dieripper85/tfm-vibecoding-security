@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_01",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_05f1129bd03b15a4006ab990c09f4487d2b89682c6997848e4",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado en ejecución",
+        "location": "Bloque principal: app.run(debug=True)",
+        "explanation": "La aplicación inicia Flask con el modo de depuración activado. Si el servidor llega a ser accesible por usuarios no confiables, las páginas de error pueden revelar rutas, configuración, variables y trazas internas. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código en el servidor si sus controles de acceso son eludidos o quedan expuestos. El riesgo depende de cómo se despliegue la aplicación; por defecto app.run escucha únicamente en la interfaz local.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar la depuración en entornos no locales, por ejemplo usando app.run(debug=False), y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración mediante variables de entorno seguras y evitar exponer el servidor de desarrollo o el depurador a redes no confiables."
+      }
+    ]
+  },
+  "raw_response": "{\"vulnerabilities\":[{\"type\":\"Modo de depuración habilitado en ejecución\",\"location\":\"Bloque principal: app.run(debug=True)\",\"explanation\":\"La aplicación inicia Flask con el modo de depuración activado. Si el servidor llega a ser accesible por usuarios no confiables, las páginas de error pueden revelar rutas, configuración, variables y trazas internas. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código en el servidor si sus controles de acceso son eludidos o quedan expuestos. El riesgo depende de cómo se despliegue la aplicación; por defecto app.run escucha únicamente en la interfaz local.\",\"cwe\":\"CWE-489\",\"severity\":\"HIGH\",\"recommendation\":\"Deshabilitar la depuración en entornos no locales, por ejemplo usando app.run(debug=False), y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración mediante variables de entorno seguras y evitar exponer el servidor de desarrollo o el depurador a redes no confiables.\"}]}"
+}

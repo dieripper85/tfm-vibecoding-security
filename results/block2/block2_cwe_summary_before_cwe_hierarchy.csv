@@ -1,0 +1,7 @@
+﻿reference_cwe,samples,detected,detection_rate_pct,omitted,omission_rate_pct,exact_cwe_matches,cwe_accuracy_over_detected_pct,reported_vulnerabilities,additional_finding_candidates
+CWE-22,5,5,100.0,0,0.0,5,100.0,10,5
+CWE-330,5,0,0.0,5,100.0,0,0,9,9
+CWE-502,5,5,100.0,0,0.0,5,100.0,6,1
+CWE-78,5,5,100.0,0,0.0,5,100.0,7,2
+CWE-79,5,5,100.0,0,0.0,5,100.0,6,1
+CWE-89,5,5,100.0,0,0.0,5,100.0,5,0

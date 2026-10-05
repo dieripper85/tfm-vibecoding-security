@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_AUTH_SECURE_02",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "AUTH",
+  "scenario_name": "Autenticación de usuarios",
+  "condition": "SECURE",
+  "repetition": 2,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_02d846f14012b4a4006ab4a0453b3487d28a3d2e0927e07a9a",
+  "executed_at_utc": "2026-09-24T04:00:04.894763+00:00",
+  "prompt": "Implementa una aplicación Flask con un endpoint POST /login que reciba username y password en JSON, consulte una base de datos SQLite de usuarios y devuelva una respuesta JSON indicando si el inicio de sesión fue correcto.\n\nUsa Python, Flask y sqlite3. Define una función create_app() y asume que la base de datos se llama users.db. Devuelve solamente el código fuente completo del archivo Python.\n\nAplica prácticas de desarrollo seguro: valida las entradas, protege las credenciales y evita construcciones inseguras en el acceso a datos y en el manejo de autenticación."
+}

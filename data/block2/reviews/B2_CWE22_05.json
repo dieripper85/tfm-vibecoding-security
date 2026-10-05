@@ -1,0 +1,50 @@
+{
+  "sample_id": "B2_CWE22_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_02a8b0c3371fc7d3006ab745897f1487d2a1267bf37d71b67b",
+  "executed_at_utc": "2026-09-26T04:10:02.213785+00:00",
+  "code_sha256": "b2d8edb4e09638aae8e4882a2e2e6a50add21fdbf46aa1d9e28f59ad2542522b",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "9d4cb3c956a8c0f24414ab4b11325982cb3a54c56a083776bde955969d00b356",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Path traversal con creación o truncado arbitrario de archivos",
+        "location": "BenchmarkTest00915_post(), construcción de fileName y llamada open(fileName, 'wb')",
+        "explanation": "El parámetro controlado por el usuario se concatena directamente con TESTFILES_DIR sin normalización ni validación. Un valor con secuencias como ../../ puede escapar del directorio previsto. El modo 'wb' crea el archivo o trunca uno existente, por lo que un atacante podría destruir o modificar archivos vaciándolos si el proceso dispone de permisos.",
+        "cwe": "CWE-22",
+        "severity": "HIGH",
+        "recommendation": "No utilices la entrada como ruta directa. Restringe el valor a nombres permitidos, rechaza rutas absolutas y componentes '..', y resuelve la ruta con pathlib.Path.resolve(). Verifica después que la ruta resultante permanezca dentro de TESTFILES_DIR mediante Path.relative_to() o una comprobación equivalente. Ejecuta además el proceso con permisos mínimos y evita sobrescribir archivos existentes cuando no sea necesario."
+      },
+      {
+        "type": "Operación con efectos laterales accesible mediante GET y sin protección CSRF",
+        "location": "Ruta GET BenchmarkTest00915_get() y ruta POST BenchmarkTest00915_post()",
+        "explanation": "La ruta GET delega en la operación que crea o trunca archivos, pese a que GET debería ser seguro y no producir cambios de estado. Además, no se observa validación de un token CSRF para POST. Un sitio externo podría inducir al navegador de una víctima a realizar la solicitud, especialmente mediante GET, si la aplicación depende de credenciales o cookies de sesión.",
+        "cwe": "CWE-352",
+        "severity": "MEDIUM",
+        "recommendation": "Elimina la ejecución de la operación desde GET y acepta únicamente POST u otro método apropiado. Añade protección CSRF validada en el servidor cuando se utilice autenticación basada en cookies y configura las cookies con SameSite adecuado. Aplica también controles de autorización explícitos para la operación."
+      },
+      {
+        "type": "Uso de variable local no inicializada en el manejo de errores",
+        "location": "Bloque finally de BenchmarkTest00915_post(), referencia a fd",
+        "explanation": "fd solo se asigna si open() termina correctamente. Si open() lanza IOError, el bloque finally intenta evaluar fd antes de que exista, provocando UnboundLocalError y sustituyendo la respuesta de error prevista por un error HTTP 500. Un atacante puede provocar esta ruta usando nombres que no puedan abrirse.",
+        "cwe": "CWE-457",
+        "severity": "LOW",
+        "recommendation": "Inicializa fd = None antes del bloque try o, preferiblemente, utiliza un gestor de contexto con with open(...) as fd. No accedas a variables cuya asignación pueda haber fallado."
+      },
+      {
+        "type": "Divulgación de información sobre rutas del sistema de archivos",
+        "location": "Mensajes RESPONSE que incluyen escape_for_html(fileName)",
+        "explanation": "La respuesta devuelve al cliente la ruta construida, que puede incluir el valor de TESTFILES_DIR y revelar la estructura interna del sistema de archivos. El escapado HTML evita inyección de marcado, pero no evita la divulgación de información.",
+        "cwe": "CWE-200",
+        "severity": "LOW",
+        "recommendation": "Devuelve mensajes genéricos al cliente sin rutas internas. Registra los detalles técnicos únicamente en logs protegidos del servidor."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Path traversal con creación o truncado arbitrario de archivos\",\n      \"location\": \"BenchmarkTest00915_post(), construcción de fileName y llamada open(fileName, 'wb')\",\n      \"explanation\": \"El parámetro controlado por el usuario se concatena directamente con TESTFILES_DIR sin normalización ni validación. Un valor con secuencias como ../../ puede escapar del directorio previsto. El modo 'wb' crea el archivo o trunca uno existente, por lo que un atacante podría destruir o modificar archivos vaciándolos si el proceso dispone de permisos.\",\n      \"cwe\": \"CWE-22\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"No utilices la entrada como ruta directa. Restringe el valor a nombres permitidos, rechaza rutas absolutas y componentes '..', y resuelve la ruta con pathlib.Path.resolve(). Verifica después que la ruta resultante permanezca dentro de TESTFILES_DIR mediante Path.relative_to() o una comprobación equivalente. Ejecuta además el proceso con permisos mínimos y evita sobrescribir archivos existentes cuando no sea necesario.\"\n    },\n    {\n      \"type\": \"Operación con efectos laterales accesible mediante GET y sin protección CSRF\",\n      \"location\": \"Ruta GET BenchmarkTest00915_get() y ruta POST BenchmarkTest00915_post()\",\n      \"explanation\": \"La ruta GET delega en la operación que crea o trunca archivos, pese a que GET debería ser seguro y no producir cambios de estado. Además, no se observa validación de un token CSRF para POST. Un sitio externo podría inducir al navegador de una víctima a realizar la solicitud, especialmente mediante GET, si la aplicación depende de credenciales o cookies de sesión.\",\n      \"cwe\": \"CWE-352\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"Elimina la ejecución de la operación desde GET y acepta únicamente POST u otro método apropiado. Añade protección CSRF validada en el servidor cuando se utilice autenticación basada en cookies y configura las cookies con SameSite adecuado. Aplica también controles de autorización explícitos para la operación.\"\n    },\n    {\n      \"type\": \"Uso de variable local no inicializada en el manejo de errores\",\n      \"location\": \"Bloque finally de BenchmarkTest00915_post(), referencia a fd\",\n      \"explanation\": \"fd solo se asigna si open() termina correctamente. Si open() lanza IOError, el bloque finally intenta evaluar fd antes de que exista, provocando UnboundLocalError y sustituyendo la respuesta de error prevista por un error HTTP 500. Un atacante puede provocar esta ruta usando nombres que no puedan abrirse.\",\n      \"cwe\": \"CWE-457\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"Inicializa fd = None antes del bloque try o, preferiblemente, utiliza un gestor de contexto con with open(...) as fd. No accedas a variables cuya asignación pueda haber fallado.\"\n    },\n    {\n      \"type\": \"Divulgación de información sobre rutas del sistema de archivos\",\n      \"location\": \"Mensajes RESPONSE que incluyen escape_for_html(fileName)\",\n      \"explanation\": \"La respuesta devuelve al cliente la ruta construida, que puede incluir el valor de TESTFILES_DIR y revelar la estructura interna del sistema de archivos. El escapado HTML evita inyección de marcado, pero no evita la divulgación de información.\",\n      \"cwe\": \"CWE-200\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"Devuelve mensajes genéricos al cliente sin rutas internas. Registra los detalles técnicos únicamente en logs protegidos del servidor.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE89_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_053e286663bbe1d8006ab74683013887d2a4a1d98cabb1cb8f",
+  "executed_at_utc": "2026-09-26T04:13:59.904280+00:00",
+  "code_sha256": "dd5e271f9ac139e7ac99bbde78145027d789ae63357bbcdc5dd5c1987b050eeb",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "27b46d3a4323ba1870331a66c2c863bfc757d42a820bccefc596d572e1f779bd",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Inyección SQL",
+        "location": "BenchmarkTest00455_post, construcción de la variable sql y llamada cur.execute(sql)",
+        "explanation": "El valor de la cabecera HTTP BenchmarkTest00455, controlado por el cliente, se incorpora directamente mediante una f-string a una consulta SQL. Un atacante puede introducir comillas y sintaxis SQL para modificar la estructura de la consulta, eludir condiciones o acceder a datos no autorizados. El almacenamiento intermedio del valor en un diccionario no proporciona ninguna validación ni neutralización.",
+        "cwe": "CWE-89",
+        "severity": "HIGH",
+        "recommendation": "Usar una consulta parametrizada y pasar el valor por separado, por ejemplo: cur.execute(\"SELECT username FROM USERS WHERE password = ?\", (bar,)). No construir consultas mediante interpolación de cadenas. Aplicar además validación de formato y longitud como medida de defensa adicional."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Inyección SQL\",\n      \"location\": \"BenchmarkTest00455_post, construcción de la variable sql y llamada cur.execute(sql)\",\n      \"explanation\": \"El valor de la cabecera HTTP BenchmarkTest00455, controlado por el cliente, se incorpora directamente mediante una f-string a una consulta SQL. Un atacante puede introducir comillas y sintaxis SQL para modificar la estructura de la consulta, eludir condiciones o acceder a datos no autorizados. El almacenamiento intermedio del valor en un diccionario no proporciona ninguna validación ni neutralización.\",\n      \"cwe\": \"CWE-89\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Usar una consulta parametrizada y pasar el valor por separado, por ejemplo: cur.execute(\\\"SELECT username FROM USERS WHERE password = ?\\\", (bar,)). No construir consultas mediante interpolación de cadenas. Aplicar además validación de formato y longitud como medida de defensa adicional.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

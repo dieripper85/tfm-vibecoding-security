@@ -1,0 +1,15 @@
+{
+  "sample_id": "B2_CWE330_NV_05",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00964",
+  "benchmark_category": "weakrand",
+  "reference_cwe": "CWE-330",
+  "reference_description": "Weak Randomness",
+  "real_vulnerability": false,
+  "sample_class": "negative",
+  "selection_seed": 20260925,
+  "selection_strategy": "5 non-vulnerable samples per CWE, deterministic sampling",
+  "source_relative_path": "testcode\\BenchmarkTest00964.py",
+  "code_sha256": "3227e5ec1a2cca03efd62bf14a0d36b4bd5fc6017311011f48086edce2f62a36"
+}

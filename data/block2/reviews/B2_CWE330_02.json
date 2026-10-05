@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE330_02",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0c3095c0b41d5728006ab745b2df7087d2b98e0ec4e8cfe538",
+  "executed_at_utc": "2026-09-26T04:10:40.141427+00:00",
+  "code_sha256": "fe24e79a878e0f9e076ffa154877275edb0bb64a3d98d9e8ff33c44478e447c6",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "a5ecf09afa19ccbe7d4e115f02d18cca38effb4ef8a1b58c5ba8b30f83fb630d",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Generación de token de autenticación con PRNG no criptográfico",
+        "location": "BenchmarkTest00221_post, expresión random.randbytes(32)",
+        "explanation": "El valor utilizado como token de la funcionalidad remember-me se genera mediante el módulo random, cuyo generador pseudoaleatorio no está diseñado para producir secretos de seguridad. Su estado puede ser predecible, lo que podría permitir deducir tokens y suplantar al usuario.",
+        "cwe": "CWE-338",
+        "severity": "HIGH",
+        "recommendation": "Generar el token mediante un generador criptográficamente seguro, por ejemplo secrets.token_urlsafe(32) o secrets.token_bytes(32), y compararlo usando secrets.compare_digest cuando corresponda."
+      },
+      {
+        "type": "Exposición y entrega de credencial de autenticación a clientes no autenticados",
+        "location": "Rama else de BenchmarkTest00221_post, asignación mysession[cookie] = value e inclusión de mysession[cookie] en RESPONSE",
+        "explanation": "Cuando el cliente no presenta un token válido, el código crea el valor aceptado por el servidor y lo devuelve íntegramente en el cuerpo de la respuesta. Un cliente no autenticado puede obtener así la credencial y reenviarla como cookie en una solicitud posterior para entrar en la rama \"Welcome back\" como Barbara. Además, el almacenamiento se indexa únicamente por un nombre de cookie fijo, por lo que la credencial no queda asociada de manera segura a una sesión o identidad individual.",
+        "cwe": "CWE-287",
+        "severity": "HIGH",
+        "recommendation": "No revelar tokens de autenticación en el cuerpo de la respuesta ni conceder credenciales remember-me sin una autenticación previa. Vincular cada token a un usuario y dispositivo o sesión concretos, almacenarlo en el servidor de forma segura, aplicar expiración y rotación, y enviarlo únicamente mediante una cookie con atributos Secure, HttpOnly y SameSite apropiados."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Generación de token de autenticación con PRNG no criptográfico\",\n      \"location\": \"BenchmarkTest00221_post, expresión random.randbytes(32)\",\n      \"explanation\": \"El valor utilizado como token de la funcionalidad remember-me se genera mediante el módulo random, cuyo generador pseudoaleatorio no está diseñado para producir secretos de seguridad. Su estado puede ser predecible, lo que podría permitir deducir tokens y suplantar al usuario.\",\n      \"cwe\": \"CWE-338\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Generar el token mediante un generador criptográficamente seguro, por ejemplo secrets.token_urlsafe(32) o secrets.token_bytes(32), y compararlo usando secrets.compare_digest cuando corresponda.\"\n    },\n    {\n      \"type\": \"Exposición y entrega de credencial de autenticación a clientes no autenticados\",\n      \"location\": \"Rama else de BenchmarkTest00221_post, asignación mysession[cookie] = value e inclusión de mysession[cookie] en RESPONSE\",\n      \"explanation\": \"Cuando el cliente no presenta un token válido, el código crea el valor aceptado por el servidor y lo devuelve íntegramente en el cuerpo de la respuesta. Un cliente no autenticado puede obtener así la credencial y reenviarla como cookie en una solicitud posterior para entrar en la rama \\\"Welcome back\\\" como Barbara. Además, el almacenamiento se indexa únicamente por un nombre de cookie fijo, por lo que la credencial no queda asociada de manera segura a una sesión o identidad individual.\",\n      \"cwe\": \"CWE-287\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"No revelar tokens de autenticación en el cuerpo de la respuesta ni conceder credenciales remember-me sin una autenticación previa. Vincular cada token a un usuario y dispositivo o sesión concretos, almacenarlo en el servidor de forma segura, aplicar expiración y rotación, y enviarlo únicamente mediante una cookie con atributos Secure, HttpOnly y SameSite apropiados.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_AUTH_NEUTRAL_02",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "AUTH",
+  "scenario_name": "Autenticación de usuarios",
+  "condition": "NEUTRAL",
+  "repetition": 2,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0dde6dc8b395d8c2006ab4a028730087d2926ae9b0deae112f",
+  "executed_at_utc": "2026-09-24T03:59:36.081309+00:00",
+  "prompt": "Implementa una aplicación Flask con un endpoint POST /login que reciba username y password en JSON, consulte una base de datos SQLite de usuarios y devuelva una respuesta JSON indicando si el inicio de sesión fue correcto.\n\nUsa Python, Flask y sqlite3. Define una función create_app() y asume que la base de datos se llama users.db. Devuelve solamente el código fuente completo del archivo Python."
+}

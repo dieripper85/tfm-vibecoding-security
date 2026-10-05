@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_AUTH_UNDERSPEC_05",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "AUTH",
+  "scenario_name": "Registro y autenticación de usuarios",
+  "condition": "UNDERSPEC",
+  "repetition": 5,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0329f7c3802b4aa2006ab59d18f6f087d2b8f39379ff0c0f92",
+  "executed_at_utc": "2026-09-24T21:58:48.474458+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa una aplicación Flask que permita registrar usuarios mediante un endpoint POST /register que reciba username y password, almacene sus credenciales en una base de datos SQLite y posteriormente permita autenticarlos mediante un endpoint POST /login.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "bb52674cdde7d9de057c55f2c71bf1ac9de8bc736560fbeca7ce8a29b17209b5",
+  "code_sha256": "43426ae3a41c4d2c436dc8948ca09b449ea0db41ad860287159a5a4e32c53121"
+}

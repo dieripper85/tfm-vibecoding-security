@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE330_03",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0261f789b7d300ce006ab745c0b9f487d292b865d5cf9b58eb",
+  "executed_at_utc": "2026-09-26T04:10:56.089216+00:00",
+  "code_sha256": "7f59751a48f2a70eb6bfa869a44fd371675aa359d3217d405be5c8e05a351002",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "bcdac47c9f8c7029a3140782587e1f06100f7c9e00131b93a3f3898d386af648",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Generación de token de autenticación con PRNG no criptográfico",
+        "location": "BenchmarkTest00308_post(), asignación de value mediante random.randbytes(32)",
+        "explanation": "El valor utilizado como token de la cookie de recuerdo se genera con el módulo random, cuyo generador pseudoaleatorio no está diseñado para fines criptográficos. Si un atacante puede inferir o reconstruir su estado, podría predecir tokens y falsificar la cookie usada por la comprobación de autenticación.",
+        "cwe": "CWE-338",
+        "severity": "HIGH",
+        "recommendation": "Generar el token con un CSPRNG, por ejemplo secrets.token_urlsafe(32) o base64.urlsafe_b64encode(secrets.token_bytes(32)).decode('ascii'). Asociar además el token de forma inequívoca al usuario y rotarlo tras su uso o después de eventos sensibles."
+      },
+      {
+        "type": "Exposición de credencial de autenticación en la respuesta",
+        "location": "Rama else de BenchmarkTest00308_post(), interpolación de mysession[cookie] en RESPONSE",
+        "explanation": "El valor que posteriormente se acepta como credencial de la cookie se devuelve explícitamente dentro del cuerpo HTML. Esto puede facilitar su filtración mediante registros de respuestas, herramientas de monitorización, historiales o componentes intermediarios, permitiendo la reutilización del token para suplantar la sesión recordada.",
+        "cwe": "CWE-200",
+        "severity": "MEDIUM",
+        "recommendation": "No incluir tokens de autenticación en el contenido HTML. Enviarlos únicamente mediante una cookie configurada con HttpOnly, Secure y un atributo SameSite apropiado; evitar registrar o mostrar el valor y aplicar expiración y rotación."
+      }
+    ]
+  },
+  "raw_response": "{\"vulnerabilities\":[{\"type\":\"Generación de token de autenticación con PRNG no criptográfico\",\"location\":\"BenchmarkTest00308_post(), asignación de value mediante random.randbytes(32)\",\"explanation\":\"El valor utilizado como token de la cookie de recuerdo se genera con el módulo random, cuyo generador pseudoaleatorio no está diseñado para fines criptográficos. Si un atacante puede inferir o reconstruir su estado, podría predecir tokens y falsificar la cookie usada por la comprobación de autenticación.\",\"cwe\":\"CWE-338\",\"severity\":\"HIGH\",\"recommendation\":\"Generar el token con un CSPRNG, por ejemplo secrets.token_urlsafe(32) o base64.urlsafe_b64encode(secrets.token_bytes(32)).decode('ascii'). Asociar además el token de forma inequívoca al usuario y rotarlo tras su uso o después de eventos sensibles.\"},{\"type\":\"Exposición de credencial de autenticación en la respuesta\",\"location\":\"Rama else de BenchmarkTest00308_post(), interpolación de mysession[cookie] en RESPONSE\",\"explanation\":\"El valor que posteriormente se acepta como credencial de la cookie se devuelve explícitamente dentro del cuerpo HTML. Esto puede facilitar su filtración mediante registros de respuestas, herramientas de monitorización, historiales o componentes intermediarios, permitiendo la reutilización del token para suplantar la sesión recordada.\",\"cwe\":\"CWE-200\",\"severity\":\"MEDIUM\",\"recommendation\":\"No incluir tokens de autenticación en el contenido HTML. Enviarlos únicamente mediante una cookie configurada con HttpOnly, Secure y un atributo SameSite apropiado; evitar registrar o mostrar el valor y aplicar expiración y rotación.\"}]}",
+  "parse_error": null
+}

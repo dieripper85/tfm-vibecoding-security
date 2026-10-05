@@ -1,0 +1,13 @@
+{
+  "sample_id": "B2_CWE89_02",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00283",
+  "benchmark_category": "sqli",
+  "reference_cwe": "CWE-89",
+  "reference_description": "SQL Injection",
+  "real_vulnerability": true,
+  "selection_seed": 20260925,
+  "source_relative_path": "testcode\\BenchmarkTest00283.py",
+  "code_sha256": "bf968127a920a0a08989f45faeb2e61ffadf2ab23d46730b4ebd96c1c0929ab4"
+}

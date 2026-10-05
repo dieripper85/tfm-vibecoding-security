@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT_B1_DB_UNDERSPEC_01",
+  "block": 1,
+  "pilot": true,
+  "scenario_id": "DB",
+  "scenario_name": "Consulta de base de datos",
+  "condition": "UNDERSPEC",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0e38d014bd642528006ab4a05c68dc87d29ab4edeafc6fdb8e",
+  "executed_at_utc": "2026-09-24T04:00:28.106775+00:00",
+  "prompt": "Implementa una aplicación Flask con un endpoint GET /users/search que reciba el parámetro name, busque usuarios por nombre en una base de datos SQLite y devuelva los resultados en JSON."
+}

@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE79_05",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0e4b4eb987a2d708006ab74665f66487d2b7219f336dac4f19",
+  "executed_at_utc": "2026-09-26T04:13:34.089060+00:00",
+  "code_sha256": "8c9c4bfe2e9681ceb5c74afd09c702343b47e8f930be0aa2baa6c469796bf501",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "b3ed35a77c496404b7f271ca63b6378360261a4d0ce9ce8870fe2f0759d9e328",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Cross-Site Scripting (XSS) reflejado",
+        "location": "BenchmarkTest00924_post(), construcción de RESPONSE mediante interpolación de la variable bar",
+        "explanation": "El parámetro BenchmarkTest00924 se obtiene directamente de la cadena de consulta, se decodifica con urllib.parse.unquote_plus y se inserta sin escape en una respuesta que Flask sirve como contenido HTML. Un atacante puede proporcionar etiquetas o código JavaScript que será interpretado por el navegador de la víctima. La función escape_for_html está importada, pero no se utiliza.",
+        "cwe": "CWE-79",
+        "severity": "HIGH",
+        "recommendation": "Escapar el valor antes de incorporarlo al HTML mediante una función de escape contextual fiable, o renderizar una plantilla con autoescape habilitado. Si la respuesta no necesita ser HTML, devolverla explícitamente con el tipo de contenido text/plain. Utilizar request.args.get('BenchmarkTest00924') en lugar de analizar manualmente la cadena de consulta."
+      },
+      {
+        "type": "Validación insuficiente de codificación de entrada",
+        "location": "BenchmarkTest00924_post(), request.query_string.decode('utf-8')",
+        "explanation": "La cadena de consulta se decodifica como UTF-8 estricto sin manejar UnicodeDecodeError. Una solicitud con secuencias UTF-8 inválidas puede provocar una excepción no controlada y una respuesta HTTP 500, permitiendo causar errores repetidos y consumo innecesario de recursos o registros.",
+        "cwe": "CWE-20",
+        "severity": "LOW",
+        "recommendation": "Evitar decodificar y analizar manualmente request.query_string; utilizar request.args, que aplica el procesamiento de parámetros de Flask/Werkzeug. Si la decodificación manual es imprescindible, capturar UnicodeDecodeError y responder con un error 400 controlado."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Cross-Site Scripting (XSS) reflejado\",\n      \"location\": \"BenchmarkTest00924_post(), construcción de RESPONSE mediante interpolación de la variable bar\",\n      \"explanation\": \"El parámetro BenchmarkTest00924 se obtiene directamente de la cadena de consulta, se decodifica con urllib.parse.unquote_plus y se inserta sin escape en una respuesta que Flask sirve como contenido HTML. Un atacante puede proporcionar etiquetas o código JavaScript que será interpretado por el navegador de la víctima. La función escape_for_html está importada, pero no se utiliza.\",\n      \"cwe\": \"CWE-79\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Escapar el valor antes de incorporarlo al HTML mediante una función de escape contextual fiable, o renderizar una plantilla con autoescape habilitado. Si la respuesta no necesita ser HTML, devolverla explícitamente con el tipo de contenido text/plain. Utilizar request.args.get('BenchmarkTest00924') en lugar de analizar manualmente la cadena de consulta.\"\n    },\n    {\n      \"type\": \"Validación insuficiente de codificación de entrada\",\n      \"location\": \"BenchmarkTest00924_post(), request.query_string.decode('utf-8')\",\n      \"explanation\": \"La cadena de consulta se decodifica como UTF-8 estricto sin manejar UnicodeDecodeError. Una solicitud con secuencias UTF-8 inválidas puede provocar una excepción no controlada y una respuesta HTTP 500, permitiendo causar errores repetidos y consumo innecesario de recursos o registros.\",\n      \"cwe\": \"CWE-20\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"Evitar decodificar y analizar manualmente request.query_string; utilizar request.args, que aplica el procesamiento de parámetros de Flask/Werkzeug. Si la decodificación manual es imprescindible, capturar UnicodeDecodeError y responder con un error 400 controlado.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

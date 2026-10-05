@@ -1,0 +1,15 @@
+{
+  "sample_id": "B2_CWE78_NV_01",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00350",
+  "benchmark_category": "cmdi",
+  "reference_cwe": "CWE-78",
+  "reference_description": "Command Injection",
+  "real_vulnerability": false,
+  "sample_class": "negative",
+  "selection_seed": 20260925,
+  "selection_strategy": "5 non-vulnerable samples per CWE, deterministic sampling",
+  "source_relative_path": "testcode\\BenchmarkTest00350.py",
+  "code_sha256": "52eeea7199c73ff35fdb3e260ed647337df16f962f40a7e5b2e2854eed3c6476"
+}

@@ -1,0 +1,9 @@
+{
+  "sample_id": "B1_WEB_SECURE_03",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_086ddcfee8af17b0006ab990fffbb887d2bbec31211c91d544",
+  "review": {
+    "vulnerabilities": []
+  },
+  "raw_response": "{\"vulnerabilities\":[]}"
+}

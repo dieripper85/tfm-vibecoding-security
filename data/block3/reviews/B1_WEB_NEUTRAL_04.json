@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_04",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_0bd3b4353b5f136a006ab990e2345887d2b31c800c4358625c",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado",
+        "location": "Bloque principal: app.run(debug=True)",
+        "explanation": "La aplicación inicia Flask con el modo de depuración habilitado. Si el servicio queda accesible para usuarios no confiables, las excepciones pueden revelar código, rutas, variables y otros datos internos. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código en determinadas condiciones. Aunque Flask escucha por defecto en la interfaz local, esta configuración sigue siendo insegura para un despliegue de producción.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar el modo de depuración en configuraciones desplegadas, por ejemplo mediante app.run(debug=False), y utilizar un servidor WSGI de producción. Gestionar la configuración por entorno y evitar que valores controlables externamente puedan habilitar el depurador."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Modo de depuración habilitado\",\n      \"location\": \"Bloque principal: app.run(debug=True)\",\n      \"explanation\": \"La aplicación inicia Flask con el modo de depuración habilitado. Si el servicio queda accesible para usuarios no confiables, las excepciones pueden revelar código, rutas, variables y otros datos internos. Además, el depurador interactivo de Werkzeug puede permitir ejecución de código en determinadas condiciones. Aunque Flask escucha por defecto en la interfaz local, esta configuración sigue siendo insegura para un despliegue de producción.\",\n      \"cwe\": \"CWE-489\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Deshabilitar el modo de depuración en configuraciones desplegadas, por ejemplo mediante app.run(debug=False), y utilizar un servidor WSGI de producción. Gestionar la configuración por entorno y evitar que valores controlables externamente puedan habilitar el depurador.\"\n    }\n  ]\n}"
+}

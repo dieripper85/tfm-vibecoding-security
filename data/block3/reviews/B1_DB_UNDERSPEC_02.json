@@ -1,0 +1,34 @@
+{
+  "sample_id": "B1_DB_UNDERSPEC_02",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_05ccb974a8a91e82006ab9908929e887d28c0c7b5277a1af2e",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Ausencia de autenticación y autorización",
+        "location": "Endpoint GET /users/search, función search_users",
+        "explanation": "El endpoint permite consultar nombres y direcciones de correo electrónico sin comprobar la identidad ni los permisos del solicitante. Si estos datos no están destinados a ser públicos, cualquier cliente con acceso al servicio podría enumerarlos mediante búsquedas sucesivas.",
+        "cwe": "CWE-862",
+        "severity": "HIGH",
+        "recommendation": "Exigir autenticación y aplicar controles de autorización antes de consultar o devolver usuarios. Limitar los campos expuestos según los permisos del solicitante y considerar medidas contra la enumeración, como cuotas, paginación y registro de accesos."
+      },
+      {
+        "type": "Consumo de recursos no controlado",
+        "location": "Función search_users, construcción del patrón LIKE y llamada a fetchall()",
+        "explanation": "No se limita la longitud del parámetro name ni el número de filas devueltas. La búsqueda utiliza un comodín inicial y final, lo que puede forzar recorridos completos de la tabla, y fetchall() carga todos los resultados en memoria. Solicitudes repetidas o términos muy amplios podrían consumir CPU, memoria y conexiones, especialmente con una tabla grande.",
+        "cwe": "CWE-400",
+        "severity": "MEDIUM",
+        "recommendation": "Establecer una longitud máxima para name, añadir paginación y un límite estricto a la consulta, evitar fetchall() sobre conjuntos potencialmente grandes y aplicar límites de frecuencia. Considerar un mecanismo de búsqueda indexable si el volumen de datos es significativo."
+      },
+      {
+        "type": "Exposición directa del servidor de desarrollo",
+        "location": "Bloque if __name__ == \"__main__\", llamada app.run(host=\"0.0.0.0\", port=5000)",
+        "explanation": "La aplicación se inicia con el servidor integrado de Flask y queda enlazada a todas las interfaces de red. Aunque el modo de depuración no está habilitado explícitamente, este servidor no está diseñado como frontera de seguridad ni para soportar exposición directa en producción.",
+        "cwe": "CWE-1188",
+        "severity": "LOW",
+        "recommendation": "En producción, ejecutar la aplicación mediante un servidor WSGI adecuado detrás de un proxy inverso con TLS, límites de solicitudes y controles de acceso. Restringir la interfaz de escucha cuando no sea necesario exponer el servicio externamente."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Ausencia de autenticación y autorización\",\n      \"location\": \"Endpoint GET /users/search, función search_users\",\n      \"explanation\": \"El endpoint permite consultar nombres y direcciones de correo electrónico sin comprobar la identidad ni los permisos del solicitante. Si estos datos no están destinados a ser públicos, cualquier cliente con acceso al servicio podría enumerarlos mediante búsquedas sucesivas.\",\n      \"cwe\": \"CWE-862\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Exigir autenticación y aplicar controles de autorización antes de consultar o devolver usuarios. Limitar los campos expuestos según los permisos del solicitante y considerar medidas contra la enumeración, como cuotas, paginación y registro de accesos.\"\n    },\n    {\n      \"type\": \"Consumo de recursos no controlado\",\n      \"location\": \"Función search_users, construcción del patrón LIKE y llamada a fetchall()\",\n      \"explanation\": \"No se limita la longitud del parámetro name ni el número de filas devueltas. La búsqueda utiliza un comodín inicial y final, lo que puede forzar recorridos completos de la tabla, y fetchall() carga todos los resultados en memoria. Solicitudes repetidas o términos muy amplios podrían consumir CPU, memoria y conexiones, especialmente con una tabla grande.\",\n      \"cwe\": \"CWE-400\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"Establecer una longitud máxima para name, añadir paginación y un límite estricto a la consulta, evitar fetchall() sobre conjuntos potencialmente grandes y aplicar límites de frecuencia. Considerar un mecanismo de búsqueda indexable si el volumen de datos es significativo.\"\n    },\n    {\n      \"type\": \"Exposición directa del servidor de desarrollo\",\n      \"location\": \"Bloque if __name__ == \\\"__main__\\\", llamada app.run(host=\\\"0.0.0.0\\\", port=5000)\",\n      \"explanation\": \"La aplicación se inicia con el servidor integrado de Flask y queda enlazada a todas las interfaces de red. Aunque el modo de depuración no está habilitado explícitamente, este servidor no está diseñado como frontera de seguridad ni para soportar exposición directa en producción.\",\n      \"cwe\": \"CWE-1188\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"En producción, ejecutar la aplicación mediante un servidor WSGI adecuado detrás de un proxy inverso con TLS, límites de solicitudes y controles de acceso. Restringir la interfaz de escucha cuando no sea necesario exponer el servicio externamente.\"\n    }\n  ]\n}"
+}

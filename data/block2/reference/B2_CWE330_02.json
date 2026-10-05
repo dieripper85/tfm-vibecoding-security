@@ -1,0 +1,13 @@
+{
+  "sample_id": "B2_CWE330_02",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00221",
+  "benchmark_category": "weakrand",
+  "reference_cwe": "CWE-330",
+  "reference_description": "Weak Randomness",
+  "real_vulnerability": true,
+  "selection_seed": 20260925,
+  "source_relative_path": "testcode\\BenchmarkTest00221.py",
+  "code_sha256": "fe24e79a878e0f9e076ffa154877275edb0bb64a3d98d9e8ff33c44478e447c6"
+}

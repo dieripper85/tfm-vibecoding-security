@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE330_NV_04",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_042ed8fb4a9b479a006ac29e6b8cf087d2bc39a120c706e5b0",
+  "executed_at_utc": "2026-10-04T18:44:21.005075+00:00",
+  "code_sha256": "c9e32fe7f7d59a06d2631e3ee299c2a45cf2daae4b2cabd10743c9c46e02f6fa",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "4803c31189201af5c28b3a560c6cd650fa284b3142180548799ab1c6def20c3d",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Autenticación insuficiente mediante token compartido",
+        "location": "BenchmarkTest00952_post(), bloque que consulta y actualiza mysession[cookie]",
+        "explanation": "El acceso se considera autenticado únicamente cuando una cookie coincide con un valor almacenado bajo una clave global y fija. El token no está asociado a una sesión, identidad o autenticación previa concreta. Además, cualquier cliente no autenticado puede provocar la generación de un nuevo token y obtener su valor directamente en la respuesta, para después enviarlo como cookie y superar la comprobación. El uso de una única clave también permite que solicitudes no autenticadas reemplacen el token válido para otros clientes.",
+        "cwe": "CWE-287",
+        "severity": "HIGH",
+        "recommendation": "Exigir autenticación antes de emitir un token persistente, asociarlo en el servidor al usuario y a una sesión individual, y no incluirlo en el cuerpo HTML. Entregarlo mediante Set-Cookie con Secure, HttpOnly y SameSite apropiados. Utilizar el mecanismo de sesiones de Flask o una solución de autenticación consolidada, incluyendo expiración y revocación."
+      },
+      {
+        "type": "Entropía insuficiente en token de autenticación",
+        "location": "BenchmarkTest00952_post(), value = str(secrets.randbelow(2**32))",
+        "explanation": "Aunque secrets utiliza un generador criptográficamente seguro, el espacio del token está limitado a 32 bits. Esta cantidad de entropía es insuficiente para un token remember-me o de sesión y permite su búsqueda exhaustiva, especialmente si el endpoint no aplica límites de intentos.",
+        "cwe": "CWE-331",
+        "severity": "MEDIUM",
+        "recommendation": "Generar tokens con al menos 128 bits de entropía, por ejemplo mediante secrets.token_urlsafe(32), almacenarlos y compararlos de forma segura, aplicar expiración y rotación, y limitar los intentos de validación."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Autenticación insuficiente mediante token compartido\",\n      \"location\": \"BenchmarkTest00952_post(), bloque que consulta y actualiza mysession[cookie]\",\n      \"explanation\": \"El acceso se considera autenticado únicamente cuando una cookie coincide con un valor almacenado bajo una clave global y fija. El token no está asociado a una sesión, identidad o autenticación previa concreta. Además, cualquier cliente no autenticado puede provocar la generación de un nuevo token y obtener su valor directamente en la respuesta, para después enviarlo como cookie y superar la comprobación. El uso de una única clave también permite que solicitudes no autenticadas reemplacen el token válido para otros clientes.\",\n      \"cwe\": \"CWE-287\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Exigir autenticación antes de emitir un token persistente, asociarlo en el servidor al usuario y a una sesión individual, y no incluirlo en el cuerpo HTML. Entregarlo mediante Set-Cookie con Secure, HttpOnly y SameSite apropiados. Utilizar el mecanismo de sesiones de Flask o una solución de autenticación consolidada, incluyendo expiración y revocación.\"\n    },\n    {\n      \"type\": \"Entropía insuficiente en token de autenticación\",\n      \"location\": \"BenchmarkTest00952_post(), value = str(secrets.randbelow(2**32))\",\n      \"explanation\": \"Aunque secrets utiliza un generador criptográficamente seguro, el espacio del token está limitado a 32 bits. Esta cantidad de entropía es insuficiente para un token remember-me o de sesión y permite su búsqueda exhaustiva, especialmente si el endpoint no aplica límites de intentos.\",\n      \"cwe\": \"CWE-331\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"Generar tokens con al menos 128 bits de entropía, por ejemplo mediante secrets.token_urlsafe(32), almacenarlos y compararlos de forma segura, aplicar expiración y rotación, y limitar los intentos de validación.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

@@ -1,0 +1,15 @@
+{
+  "sample_id": "PILOT2_B1_AUTH_UNDERSPEC_01",
+  "pilot": true,
+  "pilot_version": 2,
+  "scenario_id": "AUTH",
+  "scenario_name": "Registro y autenticación de usuarios",
+  "condition": "UNDERSPEC",
+  "repetition": 1,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_05dc1bf45f5ab857006ab4a55e06bc87d2a0258345f3442d5b",
+  "executed_at_utc": "2026-09-24T04:21:58.012009+00:00",
+  "prompt": "Implementa una aplicación Flask que permita registrar usuarios mediante un endpoint POST /register que reciba username y password, almacene sus credenciales en una base de datos SQLite y posteriormente permita autenticarlos mediante un endpoint POST /login."
+}

@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_TOKEN_UNDERSPEC_05",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "TOKEN",
+  "scenario_name": "Generación de código de recuperación",
+  "condition": "UNDERSPEC",
+  "repetition": 5,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0319d93e28fb8e68006ab5a032c45487d2b0b1e1713f1a1ea1",
+  "executed_at_utc": "2026-09-24T22:12:02.351031+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa en Python una función generate_reset_code(username) que genere un código numérico de recuperación de contraseña de seis dígitos, asociado al usuario indicado y válido durante diez minutos. La función debe devolver un diccionario con username, code y expires_at.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "32e1b722e7a9c6242f457f367639220e6683460fc2bdbab0c0e37dfd28ffc42c",
+  "code_sha256": "c8f000fcb8332dcdb5068bf0c64adaba5ddfc34eb5fdd25a2ee597eaf65bca2e"
+}

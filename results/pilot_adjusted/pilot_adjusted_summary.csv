@@ -1,0 +1,7 @@
+﻿scenario_id,condition,samples,samples_with_findings,rate_samples_with_findings_pct,raw_findings,unique_cwe_per_samples_total
+AUTH,NEUTRAL,2,0,0.0,0,0
+AUTH,SECURE,2,0,0.0,0,0
+AUTH,UNDERSPEC,2,0,0.0,0,0
+TOKEN,NEUTRAL,2,0,0.0,0,0
+TOKEN,SECURE,2,0,0.0,0,0
+TOKEN,UNDERSPEC,2,0,0.0,0,0

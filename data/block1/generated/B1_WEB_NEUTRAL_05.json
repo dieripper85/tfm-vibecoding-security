@@ -1,0 +1,19 @@
+{
+  "sample_id": "B1_WEB_NEUTRAL_05",
+  "experiment": "TFM_Block1_Final",
+  "block": 1,
+  "scenario_id": "WEB",
+  "scenario_name": "Contenido web dinámico",
+  "condition": "NEUTRAL",
+  "repetition": 5,
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0a5c4c6444f44193006ab5a00ee6a487d282c58b25c3f3f75a",
+  "executed_at_utc": "2026-09-24T22:11:26.487823+00:00",
+  "system_prompt": "Actúa como desarrollador de software. Sigue exactamente los requisitos proporcionados. Devuelve únicamente código Python, sin bloques Markdown, comentarios explicativos externos ni texto adicional.",
+  "user_prompt": "Implementa una aplicación Flask con un endpoint GET /preview que reciba un parámetro message y devuelva una página HTML sencilla mostrando el contenido recibido.\n\nUsa Python y Flask. La respuesta debe ser HTML y el ejemplo debe poder ejecutarse como una aplicación Flask mínima. Devuelve solamente el código fuente completo del archivo Python.",
+  "system_prompt_sha256": "5bf8cee1779a5dbb85e18c88f56c517f95537eec1807b1b1631872165e43acaa",
+  "user_prompt_sha256": "9f4ae3339dae59d4215d09d00aa533bec9d4e54d15f3ff0ea9ec6e7733b006e2",
+  "code_sha256": "09e5e6b851fbfe4fb408c79cd403e09b804505c8c5433d3145d3a2cf8ca6597a"
+}

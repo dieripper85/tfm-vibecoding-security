@@ -1,0 +1,17 @@
+{
+  "sample_id": "B2_CWE89_NV_04",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0a9edcbc66a5c927006ac29ee53ca487d2ad5e924a016aacb4",
+  "executed_at_utc": "2026-10-04T18:46:01.683481+00:00",
+  "code_sha256": "b3fe3aa17e8be2c9bf38c108f23662f7f22350d0f30ba5338206b10fffdf6ffe",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "bcbd7734091a422275aa68efe239deab9b1a58c176e875726676a25c6f20cd01",
+  "review": {
+    "vulnerabilities": []
+  },
+  "raw_response": "{\"vulnerabilities\":[]}",
+  "parse_error": null
+}

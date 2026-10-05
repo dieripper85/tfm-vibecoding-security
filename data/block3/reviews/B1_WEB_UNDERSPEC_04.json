@@ -1,0 +1,18 @@
+{
+  "sample_id": "B1_WEB_UNDERSPEC_04",
+  "model": "gpt-5.6-sol",
+  "response_id": "resp_022140f5905af4e3006ab9912811bc87d2aabef4c050dc6853",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Modo de depuración habilitado en ejecución",
+        "location": "Bloque `if __name__ == \"__main__\":`, llamada `app.run(debug=True)`",
+        "explanation": "El modo de depuración de Flask puede exponer trazas, rutas internas, variables y otros datos sensibles cuando ocurre una excepción. Además, el depurador interactivo puede permitir la ejecución de código si queda accesible para usuarios no confiables. Aunque el servidor de desarrollo normalmente escucha solo en la interfaz local, esta configuración resulta peligrosa si se ejecuta o expone en un entorno de producción.",
+        "cwe": "CWE-489",
+        "severity": "HIGH",
+        "recommendation": "Deshabilitar explícitamente la depuración en despliegues normales, por ejemplo usando `app.run(debug=False)`, y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración de depuración mediante variables de entorno seguras y evitar que el depurador sea accesible desde redes no confiables."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Modo de depuración habilitado en ejecución\",\n      \"location\": \"Bloque `if __name__ == \\\"__main__\\\":`, llamada `app.run(debug=True)`\",\n      \"explanation\": \"El modo de depuración de Flask puede exponer trazas, rutas internas, variables y otros datos sensibles cuando ocurre una excepción. Además, el depurador interactivo puede permitir la ejecución de código si queda accesible para usuarios no confiables. Aunque el servidor de desarrollo normalmente escucha solo en la interfaz local, esta configuración resulta peligrosa si se ejecuta o expone en un entorno de producción.\",\n      \"cwe\": \"CWE-489\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Deshabilitar explícitamente la depuración en despliegues normales, por ejemplo usando `app.run(debug=False)`, y ejecutar la aplicación mediante un servidor WSGI de producción. Gestionar la configuración de depuración mediante variables de entorno seguras y evitar que el depurador sea accesible desde redes no confiables.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE79_03",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0b3a03e56fe940b7006ab7465af33487d285295afe48e05263",
+  "executed_at_utc": "2026-09-26T04:13:20.122877+00:00",
+  "code_sha256": "be2ab2640aca1b405237666a866fab81c95230ab15029172424ed9e6f17882c8",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "41e8f61aef82195cc8e0b15d6b4ec044a2c7ab765e37dd61d071b3323cea4e20",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Cross-Site Scripting reflejado (XSS)",
+        "location": "BenchmarkTest00281_post, al incorporar `bar` en `RESPONSE` mediante `.format(dict)`",
+        "explanation": "El parámetro de formulario `BenchmarkTest00281`, controlado por el usuario, se asigna a `bar` y se inserta sin escape ni codificación HTML en la respuesta. Flask devuelve la cadena con un tipo de contenido HTML, por lo que un atacante puede suministrar etiquetas o JavaScript que se ejecuten en el navegador de la víctima. La función `escape_for_html` está importada, pero no se utiliza.",
+        "cwe": "CWE-79",
+        "severity": "HIGH",
+        "recommendation": "Codificar el valor según el contexto HTML antes de incluirlo en la respuesta, por ejemplo usando `markupsafe.escape`, o renderizar una plantilla de Jinja2 con autoescape habilitado. Si la respuesta no necesita HTML, devolverla explícitamente con `Content-Type: text/plain`. No construir HTML mediante interpolación directa de datos controlados por el usuario."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Cross-Site Scripting reflejado (XSS)\",\n      \"location\": \"BenchmarkTest00281_post, al incorporar `bar` en `RESPONSE` mediante `.format(dict)`\",\n      \"explanation\": \"El parámetro de formulario `BenchmarkTest00281`, controlado por el usuario, se asigna a `bar` y se inserta sin escape ni codificación HTML en la respuesta. Flask devuelve la cadena con un tipo de contenido HTML, por lo que un atacante puede suministrar etiquetas o JavaScript que se ejecuten en el navegador de la víctima. La función `escape_for_html` está importada, pero no se utiliza.\",\n      \"cwe\": \"CWE-79\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Codificar el valor según el contexto HTML antes de incluirlo en la respuesta, por ejemplo usando `markupsafe.escape`, o renderizar una plantilla de Jinja2 con autoescape habilitado. Si la respuesta no necesita HTML, devolverla explícitamente con `Content-Type: text/plain`. No construir HTML mediante interpolación directa de datos controlados por el usuario.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

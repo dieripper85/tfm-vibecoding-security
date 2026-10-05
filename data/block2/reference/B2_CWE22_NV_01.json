@@ -1,0 +1,15 @@
+{
+  "sample_id": "B2_CWE22_NV_01",
+  "source": "OWASP Benchmark Python",
+  "benchmark_version": "0.1",
+  "benchmark_test_name": "BenchmarkTest00748",
+  "benchmark_category": "pathtraver",
+  "reference_cwe": "CWE-22",
+  "reference_description": "Path Traversal",
+  "real_vulnerability": false,
+  "sample_class": "negative",
+  "selection_seed": 20260925,
+  "selection_strategy": "5 non-vulnerable samples per CWE, deterministic sampling",
+  "source_relative_path": "testcode\\BenchmarkTest00748.py",
+  "code_sha256": "c67c064cceae582eff6aff7eff1d1865361205a365057616ae3af8879c69764d"
+}

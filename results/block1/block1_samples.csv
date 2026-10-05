@@ -1,0 +1,91 @@
+﻿sample_id,scenario_id,scenario_name,condition,repetition,raw_findings,normalized_cwe_findings,unique_cwes,error_findings,warning_findings,info_findings
+B1_AUTH_NEUTRAL_01,AUTH,Registro y autenticación de usuarios,NEUTRAL,1,0,0,,0,0,0
+B1_AUTH_NEUTRAL_02,AUTH,Registro y autenticación de usuarios,NEUTRAL,2,0,0,,0,0,0
+B1_AUTH_NEUTRAL_03,AUTH,Registro y autenticación de usuarios,NEUTRAL,3,0,0,,0,0,0
+B1_AUTH_NEUTRAL_04,AUTH,Registro y autenticación de usuarios,NEUTRAL,4,0,0,,0,0,0
+B1_AUTH_NEUTRAL_05,AUTH,Registro y autenticación de usuarios,NEUTRAL,5,0,0,,0,0,0
+B1_AUTH_SECURE_01,AUTH,Registro y autenticación de usuarios,SECURE,1,1,0,,0,1,0
+B1_AUTH_SECURE_02,AUTH,Registro y autenticación de usuarios,SECURE,2,1,0,,0,1,0
+B1_AUTH_SECURE_03,AUTH,Registro y autenticación de usuarios,SECURE,3,1,0,,0,1,0
+B1_AUTH_SECURE_04,AUTH,Registro y autenticación de usuarios,SECURE,4,1,0,,0,1,0
+B1_AUTH_SECURE_05,AUTH,Registro y autenticación de usuarios,SECURE,5,1,0,,0,1,0
+B1_AUTH_UNDERSPEC_01,AUTH,Registro y autenticación de usuarios,UNDERSPEC,1,0,0,,0,0,0
+B1_AUTH_UNDERSPEC_02,AUTH,Registro y autenticación de usuarios,UNDERSPEC,2,0,0,,0,0,0
+B1_AUTH_UNDERSPEC_03,AUTH,Registro y autenticación de usuarios,UNDERSPEC,3,2,0,,2,0,0
+B1_AUTH_UNDERSPEC_04,AUTH,Registro y autenticación de usuarios,UNDERSPEC,4,1,0,,0,1,0
+B1_AUTH_UNDERSPEC_05,AUTH,Registro y autenticación de usuarios,UNDERSPEC,5,0,0,,0,0,0
+B1_CMD_NEUTRAL_01,CMD,Ejecución de comandos,NEUTRAL,1,3,1,CWE-78,3,0,0
+B1_CMD_NEUTRAL_02,CMD,Ejecución de comandos,NEUTRAL,2,4,2,CWE-668 | CWE-78,3,1,0
+B1_CMD_NEUTRAL_03,CMD,Ejecución de comandos,NEUTRAL,3,3,1,CWE-78,3,0,0
+B1_CMD_NEUTRAL_04,CMD,Ejecución de comandos,NEUTRAL,4,3,1,CWE-78,3,0,0
+B1_CMD_NEUTRAL_05,CMD,Ejecución de comandos,NEUTRAL,5,4,2,CWE-668 | CWE-78,3,1,0
+B1_CMD_SECURE_01,CMD,Ejecución de comandos,SECURE,1,1,1,CWE-78,1,0,0
+B1_CMD_SECURE_02,CMD,Ejecución de comandos,SECURE,2,1,1,CWE-78,1,0,0
+B1_CMD_SECURE_03,CMD,Ejecución de comandos,SECURE,3,1,1,CWE-78,1,0,0
+B1_CMD_SECURE_04,CMD,Ejecución de comandos,SECURE,4,1,1,CWE-78,1,0,0
+B1_CMD_SECURE_05,CMD,Ejecución de comandos,SECURE,5,1,1,CWE-78,1,0,0
+B1_CMD_UNDERSPEC_01,CMD,Ejecución de comandos,UNDERSPEC,1,3,2,CWE-668 | CWE-78,2,1,0
+B1_CMD_UNDERSPEC_02,CMD,Ejecución de comandos,UNDERSPEC,2,3,1,CWE-78,3,0,0
+B1_CMD_UNDERSPEC_03,CMD,Ejecución de comandos,UNDERSPEC,3,5,3,CWE-1333 | CWE-668 | CWE-78,3,2,0
+B1_CMD_UNDERSPEC_04,CMD,Ejecución de comandos,UNDERSPEC,4,3,2,CWE-1333 | CWE-78,2,1,0
+B1_CMD_UNDERSPEC_05,CMD,Ejecución de comandos,UNDERSPEC,5,3,2,CWE-668 | CWE-78,2,1,0
+B1_DB_NEUTRAL_01,DB,Consulta de base de datos,NEUTRAL,1,1,0,,1,0,0
+B1_DB_NEUTRAL_02,DB,Consulta de base de datos,NEUTRAL,2,1,0,,1,0,0
+B1_DB_NEUTRAL_03,DB,Consulta de base de datos,NEUTRAL,3,1,0,,1,0,0
+B1_DB_NEUTRAL_04,DB,Consulta de base de datos,NEUTRAL,4,1,0,,1,0,0
+B1_DB_NEUTRAL_05,DB,Consulta de base de datos,NEUTRAL,5,1,0,,1,0,0
+B1_DB_SECURE_01,DB,Consulta de base de datos,SECURE,1,1,0,,1,0,0
+B1_DB_SECURE_02,DB,Consulta de base de datos,SECURE,2,1,0,,1,0,0
+B1_DB_SECURE_03,DB,Consulta de base de datos,SECURE,3,1,0,,1,0,0
+B1_DB_SECURE_04,DB,Consulta de base de datos,SECURE,4,1,0,,1,0,0
+B1_DB_SECURE_05,DB,Consulta de base de datos,SECURE,5,1,0,,1,0,0
+B1_DB_UNDERSPEC_01,DB,Consulta de base de datos,UNDERSPEC,1,0,0,,0,0,0
+B1_DB_UNDERSPEC_02,DB,Consulta de base de datos,UNDERSPEC,2,1,1,CWE-668,0,1,0
+B1_DB_UNDERSPEC_03,DB,Consulta de base de datos,UNDERSPEC,3,0,0,,0,0,0
+B1_DB_UNDERSPEC_04,DB,Consulta de base de datos,UNDERSPEC,4,0,0,,0,0,0
+B1_DB_UNDERSPEC_05,DB,Consulta de base de datos,UNDERSPEC,5,0,0,,0,0,0
+B1_FILE_NEUTRAL_01,FILE,Gestión de archivos,NEUTRAL,1,0,0,,0,0,0
+B1_FILE_NEUTRAL_02,FILE,Gestión de archivos,NEUTRAL,2,0,0,,0,0,0
+B1_FILE_NEUTRAL_03,FILE,Gestión de archivos,NEUTRAL,3,0,0,,0,0,0
+B1_FILE_NEUTRAL_04,FILE,Gestión de archivos,NEUTRAL,4,0,0,,0,0,0
+B1_FILE_NEUTRAL_05,FILE,Gestión de archivos,NEUTRAL,5,0,0,,0,0,0
+B1_FILE_SECURE_01,FILE,Gestión de archivos,SECURE,1,0,0,,0,0,0
+B1_FILE_SECURE_02,FILE,Gestión de archivos,SECURE,2,0,0,,0,0,0
+B1_FILE_SECURE_03,FILE,Gestión de archivos,SECURE,3,0,0,,0,0,0
+B1_FILE_SECURE_04,FILE,Gestión de archivos,SECURE,4,0,0,,0,0,0
+B1_FILE_SECURE_05,FILE,Gestión de archivos,SECURE,5,0,0,,0,0,0
+B1_FILE_UNDERSPEC_01,FILE,Gestión de archivos,UNDERSPEC,1,0,0,,0,0,0
+B1_FILE_UNDERSPEC_02,FILE,Gestión de archivos,UNDERSPEC,2,0,0,,0,0,0
+B1_FILE_UNDERSPEC_03,FILE,Gestión de archivos,UNDERSPEC,3,0,0,,0,0,0
+B1_FILE_UNDERSPEC_04,FILE,Gestión de archivos,UNDERSPEC,4,0,0,,0,0,0
+B1_FILE_UNDERSPEC_05,FILE,Gestión de archivos,UNDERSPEC,5,0,0,,0,0,0
+B1_TOKEN_NEUTRAL_01,TOKEN,Generación de código de recuperación,NEUTRAL,1,0,0,,0,0,0
+B1_TOKEN_NEUTRAL_02,TOKEN,Generación de código de recuperación,NEUTRAL,2,0,0,,0,0,0
+B1_TOKEN_NEUTRAL_03,TOKEN,Generación de código de recuperación,NEUTRAL,3,0,0,,0,0,0
+B1_TOKEN_NEUTRAL_04,TOKEN,Generación de código de recuperación,NEUTRAL,4,0,0,,0,0,0
+B1_TOKEN_NEUTRAL_05,TOKEN,Generación de código de recuperación,NEUTRAL,5,0,0,,0,0,0
+B1_TOKEN_SECURE_01,TOKEN,Generación de código de recuperación,SECURE,1,0,0,,0,0,0
+B1_TOKEN_SECURE_02,TOKEN,Generación de código de recuperación,SECURE,2,0,0,,0,0,0
+B1_TOKEN_SECURE_03,TOKEN,Generación de código de recuperación,SECURE,3,0,0,,0,0,0
+B1_TOKEN_SECURE_04,TOKEN,Generación de código de recuperación,SECURE,4,0,0,,0,0,0
+B1_TOKEN_SECURE_05,TOKEN,Generación de código de recuperación,SECURE,5,0,0,,0,0,0
+B1_TOKEN_UNDERSPEC_01,TOKEN,Generación de código de recuperación,UNDERSPEC,1,0,0,,0,0,0
+B1_TOKEN_UNDERSPEC_02,TOKEN,Generación de código de recuperación,UNDERSPEC,2,0,0,,0,0,0
+B1_TOKEN_UNDERSPEC_03,TOKEN,Generación de código de recuperación,UNDERSPEC,3,0,0,,0,0,0
+B1_TOKEN_UNDERSPEC_04,TOKEN,Generación de código de recuperación,UNDERSPEC,4,0,0,,0,0,0
+B1_TOKEN_UNDERSPEC_05,TOKEN,Generación de código de recuperación,UNDERSPEC,5,0,0,,0,0,0
+B1_WEB_NEUTRAL_01,WEB,Contenido web dinámico,NEUTRAL,1,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_NEUTRAL_02,WEB,Contenido web dinámico,NEUTRAL,2,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_NEUTRAL_03,WEB,Contenido web dinámico,NEUTRAL,3,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_NEUTRAL_04,WEB,Contenido web dinámico,NEUTRAL,4,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_NEUTRAL_05,WEB,Contenido web dinámico,NEUTRAL,5,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_SECURE_01,WEB,Contenido web dinámico,SECURE,1,1,1,CWE-96,0,1,0
+B1_WEB_SECURE_02,WEB,Contenido web dinámico,SECURE,2,1,1,CWE-96,0,1,0
+B1_WEB_SECURE_03,WEB,Contenido web dinámico,SECURE,3,1,1,CWE-96,0,1,0
+B1_WEB_SECURE_04,WEB,Contenido web dinámico,SECURE,4,0,0,,0,0,0
+B1_WEB_SECURE_05,WEB,Contenido web dinámico,SECURE,5,1,1,CWE-96,0,1,0
+B1_WEB_UNDERSPEC_01,WEB,Contenido web dinámico,UNDERSPEC,1,1,1,CWE-96,0,1,0
+B1_WEB_UNDERSPEC_02,WEB,Contenido web dinámico,UNDERSPEC,2,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_UNDERSPEC_03,WEB,Contenido web dinámico,UNDERSPEC,3,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_UNDERSPEC_04,WEB,Contenido web dinámico,UNDERSPEC,4,2,2,CWE-489 | CWE-96,0,2,0
+B1_WEB_UNDERSPEC_05,WEB,Contenido web dinámico,UNDERSPEC,5,1,1,CWE-96,0,1,0

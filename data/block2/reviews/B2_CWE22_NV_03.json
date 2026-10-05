@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE22_NV_03",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_044b98c72ccdb526006ac29e0b19e887d28cafeac941fb16d9",
+  "executed_at_utc": "2026-10-04T18:42:40.680034+00:00",
+  "code_sha256": "dfadd9cdcd743b574b89fbf92180eda8b1900cf4bcfdd72cf7efa97ab321ee56",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "ab14c09a3df560e7685f2ff9c84882c0797ab56def85daade890b58ec4111f04",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Exposición de información interna",
+        "location": "Construcción de RESPONSE tras abrir el archivo y en el bloque except",
+        "explanation": "La respuesta HTTP incluye fileName, que puede revelar la ruta interna configurada en helpers.utils.TESTFILES_DIR. En caso de error también se devuelve e.strerror, exponiendo detalles del sistema de archivos y facilitando el reconocimiento de la infraestructura.",
+        "cwe": "CWE-200",
+        "severity": "LOW",
+        "recommendation": "No devolver rutas internas ni detalles de excepciones al cliente. Registrar esa información únicamente en logs protegidos y responder con un mensaje de error genérico."
+      },
+      {
+        "type": "Uso de variable local no inicializada",
+        "location": "Bloque finally, en la condición \"if fd is not None\"",
+        "explanation": "La variable fd solo se asigna si open() finaliza correctamente. Si open() lanza IOError, el bloque finally intenta evaluar fd antes de que exista, provocando UnboundLocalError, enmascarando el error original y generando una respuesta HTTP 500 inesperada.",
+        "cwe": "CWE-457",
+        "severity": "LOW",
+        "recommendation": "Inicializar fd = None antes del bloque try o, preferiblemente, utilizar un gestor de contexto con \"with open(fileName, 'wb') as fd:\" para garantizar el cierre correcto del archivo."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Exposición de información interna\",\n      \"location\": \"Construcción de RESPONSE tras abrir el archivo y en el bloque except\",\n      \"explanation\": \"La respuesta HTTP incluye fileName, que puede revelar la ruta interna configurada en helpers.utils.TESTFILES_DIR. En caso de error también se devuelve e.strerror, exponiendo detalles del sistema de archivos y facilitando el reconocimiento de la infraestructura.\",\n      \"cwe\": \"CWE-200\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"No devolver rutas internas ni detalles de excepciones al cliente. Registrar esa información únicamente en logs protegidos y responder con un mensaje de error genérico.\"\n    },\n    {\n      \"type\": \"Uso de variable local no inicializada\",\n      \"location\": \"Bloque finally, en la condición \\\"if fd is not None\\\"\",\n      \"explanation\": \"La variable fd solo se asigna si open() finaliza correctamente. Si open() lanza IOError, el bloque finally intenta evaluar fd antes de que exista, provocando UnboundLocalError, enmascarando el error original y generando una respuesta HTTP 500 inesperada.\",\n      \"cwe\": \"CWE-457\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"Inicializar fd = None antes del bloque try o, preferiblemente, utilizar un gestor de contexto con \\\"with open(fileName, 'wb') as fd:\\\" para garantizar el cierre correcto del archivo.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

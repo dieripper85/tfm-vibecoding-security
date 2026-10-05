@@ -1,0 +1,4 @@
+﻿scenario,samples,pre_security_findings,post_security_findings,absolute_reduction,reduction_pct,fully_remediated_samples,residual_samples,increased_samples
+CMD,15,39,34,5,12.82,0,15,0
+DB,1,1,0,1,100.0,1,0,0
+WEB,14,22,14,8,36.36,0,14,0

@@ -1,0 +1,26 @@
+{
+  "sample_id": "B2_CWE502_NV_01",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0ba2fe4eda20e3d5006ac29e92a7c887d2a79379c76543e3aa",
+  "executed_at_utc": "2026-10-04T18:44:54.499816+00:00",
+  "code_sha256": "d762f7d6e76d17f354201f3153172948a85596b520bd18b6afb86342e02901c8",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "fd4cab88c7e95933f10c6cda12ec4bed0a78e8ed675263838591402ba26c70ef",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Cross-Site Scripting (XSS) reflejado",
+        "location": "BenchmarkTest00079_post(), al concatenar yobj['text'] en RESPONSE y devolverlo directamente",
+        "explanation": "El valor procede de una cookie controlable por el cliente, se decodifica y se procesa mediante yaml.safe_load, pero no se codifica para HTML antes de incluirse en la respuesta. safe_load evita la construcción insegura de objetos YAML, pero no neutraliza contenido HTML o JavaScript. Como Flask trata por defecto una cadena devuelta como text/html, un valor YAML como text: <script>...</script> podría ejecutarse en el navegador.",
+        "cwe": "CWE-79",
+        "severity": "MEDIUM",
+        "recommendation": "No insertar directamente el valor en una respuesta HTML. Validar que yobj sea un diccionario y que text sea una cadena con el formato esperado, y aplicar codificación contextual mediante escape_for_html o una plantilla Jinja con autoescape. Si la respuesta no necesita contener HTML, devolverla con Content-Type text/plain."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Cross-Site Scripting (XSS) reflejado\",\n      \"location\": \"BenchmarkTest00079_post(), al concatenar yobj['text'] en RESPONSE y devolverlo directamente\",\n      \"explanation\": \"El valor procede de una cookie controlable por el cliente, se decodifica y se procesa mediante yaml.safe_load, pero no se codifica para HTML antes de incluirse en la respuesta. safe_load evita la construcción insegura de objetos YAML, pero no neutraliza contenido HTML o JavaScript. Como Flask trata por defecto una cadena devuelta como text/html, un valor YAML como text: <script>...</script> podría ejecutarse en el navegador.\",\n      \"cwe\": \"CWE-79\",\n      \"severity\": \"MEDIUM\",\n      \"recommendation\": \"No insertar directamente el valor en una respuesta HTML. Validar que yobj sea un diccionario y que text sea una cadena con el formato esperado, y aplicar codificación contextual mediante escape_for_html o una plantilla Jinja con autoescape. Si la respuesta no necesita contener HTML, devolverla con Content-Type text/plain.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

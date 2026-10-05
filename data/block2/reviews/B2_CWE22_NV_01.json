@@ -1,0 +1,34 @@
+{
+  "sample_id": "B2_CWE22_NV_01",
+  "experiment": "TFM_Block2_Final",
+  "model_requested": "gpt-5.6-sol",
+  "model_returned": "gpt-5.6-sol",
+  "reasoning_effort": "medium",
+  "response_id": "resp_0da0b58d70d29fa3006ac29df6633087d2ad10542f0a06d88e",
+  "executed_at_utc": "2026-10-04T18:42:16.215764+00:00",
+  "code_sha256": "c67c064cceae582eff6aff7eff1d1865361205a365057616ae3af8879c69764d",
+  "system_prompt_sha256": "34bc3adaf13faf10e0e69c64fea45f6608a76fd1c12035a04333caaa1cad63b0",
+  "user_prompt_sha256": "170576d9e9b5c110e87bfc0b1713d41062fa47c6bbe7b942bfc6904d0e5f719d",
+  "review": {
+    "vulnerabilities": [
+      {
+        "type": "Path Traversal",
+        "location": "BenchmarkTest00748_post(), validación `str(p).startswith(str(testfiles))` antes de `p.read_text()`",
+        "explanation": "El parámetro controlado por el usuario se utiliza para construir una ruta de archivo. Aunque la ruta se normaliza con `resolve()`, la comprobación de confinamiento se realiza mediante una comparación textual de prefijos. Una ruta fuera del directorio permitido cuyo nombre comparta el mismo prefijo, por ejemplo un directorio hermano llamado `testfiles_backup`, puede superar la validación y permitir la lectura de archivos de texto externos al directorio previsto.",
+        "cwe": "CWE-22",
+        "severity": "HIGH",
+        "recommendation": "Resolver primero el directorio base y comprobar la relación entre rutas por componentes: `base = Path(TESTFILES_DIR).resolve(); target = (base / bar).resolve(); if not target.is_relative_to(base): reject`. En versiones antiguas de Python puede utilizarse `os.path.commonpath`. También se recomienda restringir los nombres permitidos y verificar que el destino sea un archivo regular autorizado."
+      },
+      {
+        "type": "Manejo incorrecto de excepciones",
+        "location": "Bloque `except OSError` de BenchmarkTest00748_post()",
+        "explanation": "El manejador hace referencia a `e.strerror` sin capturar la excepción como `e`. Además, `fileName` aparece entre llaves escapadas y no corresponde a ninguna variable definida. Cuando `read_text()` genera un `OSError`, el propio manejador produce un `NameError`, provocando una respuesta HTTP 500 en vez de gestionar el fallo de forma controlada. Un usuario puede activar este comportamiento solicitando rutas inexistentes o no legibles.",
+        "cwe": "CWE-755",
+        "severity": "LOW",
+        "recommendation": "Capturar explícitamente la excepción, por ejemplo `except OSError as e:`, devolver un mensaje genérico con un código HTTP apropiado y registrar los detalles internamente. No incluir rutas internas ni mensajes del sistema operativo en la respuesta al cliente."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"vulnerabilities\": [\n    {\n      \"type\": \"Path Traversal\",\n      \"location\": \"BenchmarkTest00748_post(), validación `str(p).startswith(str(testfiles))` antes de `p.read_text()`\",\n      \"explanation\": \"El parámetro controlado por el usuario se utiliza para construir una ruta de archivo. Aunque la ruta se normaliza con `resolve()`, la comprobación de confinamiento se realiza mediante una comparación textual de prefijos. Una ruta fuera del directorio permitido cuyo nombre comparta el mismo prefijo, por ejemplo un directorio hermano llamado `testfiles_backup`, puede superar la validación y permitir la lectura de archivos de texto externos al directorio previsto.\",\n      \"cwe\": \"CWE-22\",\n      \"severity\": \"HIGH\",\n      \"recommendation\": \"Resolver primero el directorio base y comprobar la relación entre rutas por componentes: `base = Path(TESTFILES_DIR).resolve(); target = (base / bar).resolve(); if not target.is_relative_to(base): reject`. En versiones antiguas de Python puede utilizarse `os.path.commonpath`. También se recomienda restringir los nombres permitidos y verificar que el destino sea un archivo regular autorizado.\"\n    },\n    {\n      \"type\": \"Manejo incorrecto de excepciones\",\n      \"location\": \"Bloque `except OSError` de BenchmarkTest00748_post()\",\n      \"explanation\": \"El manejador hace referencia a `e.strerror` sin capturar la excepción como `e`. Además, `fileName` aparece entre llaves escapadas y no corresponde a ninguna variable definida. Cuando `read_text()` genera un `OSError`, el propio manejador produce un `NameError`, provocando una respuesta HTTP 500 en vez de gestionar el fallo de forma controlada. Un usuario puede activar este comportamiento solicitando rutas inexistentes o no legibles.\",\n      \"cwe\": \"CWE-755\",\n      \"severity\": \"LOW\",\n      \"recommendation\": \"Capturar explícitamente la excepción, por ejemplo `except OSError as e:`, devolver un mensaje genérico con un código HTTP apropiado y registrar los detalles internamente. No incluir rutas internas ni mensajes del sistema operativo en la respuesta al cliente.\"\n    }\n  ]\n}",
+  "parse_error": null
+}

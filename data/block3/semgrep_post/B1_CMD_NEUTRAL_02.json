@@ -1,0 +1,439 @@
+{
+  "version": "1.178.0",
+  "results": [
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 81,
+        "col": 13,
+        "offset": 1957
+      },
+      "end": {
+        "line": 81,
+        "col": 25,
+        "offset": 1969
+      },
+      "extra": {
+        "message": "Is \"is_global\" a function or an attribute? If it is a function, you may have meant ip.is_global() because ip.is_global is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 82,
+        "col": 12,
+        "offset": 1982
+      },
+      "end": {
+        "line": 82,
+        "col": 25,
+        "offset": 1995
+      },
+      "extra": {
+        "message": "Is \"is_private\" a function or an attribute? If it is a function, you may have meant ip.is_private() because ip.is_private is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 83,
+        "col": 12,
+        "offset": 2008
+      },
+      "end": {
+        "line": 83,
+        "col": 26,
+        "offset": 2022
+      },
+      "extra": {
+        "message": "Is \"is_loopback\" a function or an attribute? If it is a function, you may have meant ip.is_loopback() because ip.is_loopback is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 84,
+        "col": 12,
+        "offset": 2035
+      },
+      "end": {
+        "line": 84,
+        "col": 28,
+        "offset": 2051
+      },
+      "extra": {
+        "message": "Is \"is_link_local\" a function or an attribute? If it is a function, you may have meant ip.is_link_local() because ip.is_link_local is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 85,
+        "col": 12,
+        "offset": 2064
+      },
+      "end": {
+        "line": 85,
+        "col": 27,
+        "offset": 2079
+      },
+      "extra": {
+        "message": "Is \"is_multicast\" a function or an attribute? If it is a function, you may have meant ip.is_multicast() because ip.is_multicast is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 86,
+        "col": 12,
+        "offset": 2092
+      },
+      "end": {
+        "line": 86,
+        "col": 26,
+        "offset": 2106
+      },
+      "extra": {
+        "message": "Is \"is_reserved\" a function or an attribute? If it is a function, you may have meant ip.is_reserved() because ip.is_reserved is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.maintainability.is-function-without-parentheses",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 87,
+        "col": 12,
+        "offset": 2119
+      },
+      "end": {
+        "line": 87,
+        "col": 29,
+        "offset": 2136
+      },
+      "extra": {
+        "message": "Is \"is_unspecified\" a function or an attribute? If it is a function, you may have meant ip.is_unspecified() because ip.is_unspecified is always true.",
+        "metadata": {
+          "category": "maintainability",
+          "technology": [
+            "python"
+          ]
+        },
+        "severity": "WARNING",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.flask.security.injection.subprocess-injection",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 285,
+        "col": 22,
+        "offset": 7727
+      },
+      "end": {
+        "line": 293,
+        "col": 14,
+        "offset": 8003
+      },
+      "extra": {
+        "message": "Detected user input entering a `subprocess` call unsafely. This could result in a command injection vulnerability. An attacker could use this vulnerability to execute arbitrary commands on the host, which allows them to download malware, scan sensitive data, or run any command they wish on the server. Do not let users choose the command to run. In general, prefer to use Python API versions of system commands. If you must use subprocess, use a dictionary to allowlist a set of commands.",
+        "metadata": {
+          "category": "security",
+          "technology": [
+            "flask"
+          ],
+          "owasp": [
+            "A01:2017 - Injection",
+            "A03:2021 - Injection",
+            "A05:2025 - Injection"
+          ],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "references": [
+            "https://semgrep.dev/docs/cheat-sheets/python-command-injection/"
+          ],
+          "confidence": "HIGH",
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": [
+            "vuln"
+          ],
+          "likelihood": "HIGH",
+          "impact": "MEDIUM"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.security.audit.dangerous-subprocess-use-audit",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 285,
+        "col": 22,
+        "offset": 7727
+      },
+      "end": {
+        "line": 293,
+        "col": 14,
+        "offset": 8003
+      },
+      "extra": {
+        "message": "Detected subprocess function 'run' without a static string. If this data can be controlled by a malicious actor, it may be an instance of command injection. Audit the use of this call to ensure it is not controllable by an external resource. You may consider using 'shlex.escape()'.",
+        "metadata": {
+          "owasp": [
+            "A01:2017 - Injection",
+            "A03:2021 - Injection",
+            "A05:2025 - Injection"
+          ],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "asvs": {
+            "control_id": "5.3.8 OS Command Injection",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v53-output-encoding-and-injection-prevention-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "references": [
+            "https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess",
+            "https://docs.python.org/3/library/subprocess.html",
+            "https://docs.python.org/3/library/shlex.html",
+            "https://semgrep.dev/docs/cheat-sheets/python-command-injection/"
+          ],
+          "category": "security",
+          "technology": [
+            "python"
+          ],
+          "confidence": "LOW",
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": [
+            "audit"
+          ],
+          "likelihood": "LOW",
+          "impact": "HIGH"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    },
+    {
+      "check_id": "tools.semgrep-rules.python.lang.security.dangerous-subprocess-use",
+      "path": "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py",
+      "start": {
+        "line": 286,
+        "col": 17,
+        "offset": 7760
+      },
+      "end": {
+        "line": 286,
+        "col": 24,
+        "offset": 7767
+      },
+      "extra": {
+        "message": "Detected subprocess function 'run' with user controlled data. A malicious actor could leverage this to perform command injection. You may consider using 'shlex.escape()'.",
+        "metadata": {
+          "owasp": [
+            "A01:2017 - Injection",
+            "A03:2021 - Injection",
+            "A05:2025 - Injection"
+          ],
+          "cwe": [
+            "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+          ],
+          "asvs": {
+            "control_id": "5.3.8 OS Command Injection",
+            "control_url": "https://github.com/OWASP/ASVS/blob/master/4.0/en/0x13-V5-Validation-Sanitization-Encoding.md#v53-output-encoding-and-injection-prevention-requirements",
+            "section": "V5: Validation, Sanitization and Encoding Verification Requirements",
+            "version": "4"
+          },
+          "references": [
+            "https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess",
+            "https://docs.python.org/3/library/subprocess.html",
+            "https://docs.python.org/3/library/shlex.html",
+            "https://semgrep.dev/docs/cheat-sheets/python-command-injection/"
+          ],
+          "category": "security",
+          "technology": [
+            "python"
+          ],
+          "confidence": "MEDIUM",
+          "cwe2022-top25": true,
+          "cwe2021-top25": true,
+          "subcategory": [
+            "vuln"
+          ],
+          "likelihood": "MEDIUM",
+          "impact": "HIGH"
+        },
+        "severity": "ERROR",
+        "fingerprint": "requires login",
+        "lines": "requires login",
+        "validation_state": "NO_VALIDATOR",
+        "engine_kind": "OSS"
+      }
+    }
+  ],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "C:\\TFM\\tfm_vibecoding_lab\\tfm_vibecoding_lab\\data\\block3\\remediated\\B1_CMD_NEUTRAL_02.py"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.14705705642700195,
+    "profiling_times": {
+      "config_time": 18.71586322784424,
+      "core_time": 0.8716728687286377,
+      "ignores_time": 0.0007870197296142578,
+      "total_time": 19.62582540512085
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.4374215602874756,
+      "per_file_time": {
+        "mean": 0.2187107801437378,
+        "std_dev": 0.04783440535108241
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9326145552560647,
+      "rules_selected_ratio": 0.22371967654986524,
+      "rules_matched_ratio": 0.22371967654986524
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 385589568
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}
